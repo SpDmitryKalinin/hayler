@@ -1,0 +1,39 @@
+@use 'mixins/media.scss' as m;
+
+
+@mixin bigText {
+    font-size: 1.875rem;   
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.2; 
+}
+
+@mixin paragraphLarge {
+    font-size: 1.5625rem;
+    line-height: 1.2192;
+    font-style: normal;
+    font-weight: 500;
+}
+
+@mixin paragraphDefault {
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+@mixin paragraphDefaultBold {
+    @include paragraphDefault;
+    font-weight: 800;
+}
+
+@mixin mobileHeaderMenu {
+    font-size: 5rem;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    @include m.resMobile {
+        font-size: 1.875rem;
+
+    }
+}

@@ -1,0 +1,15 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+
+.lang-switcher {
+    &__button {
+        color: v.$white;
+        &--active {
+            color: v.$orange
+        }
+    }
+    
+
+}

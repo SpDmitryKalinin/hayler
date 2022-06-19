@@ -1,0 +1,97 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+
+@keyframes circleShow {
+    0% {
+        height: 0;
+        width: 0%
+    }
+    100% {
+        height: 200vw;
+        width: 200vw;
+    }
+}
+
+.hero {
+    padding-top: 1rem;
+    width: 100%;
+    position: relative;
+    overflow: auto;
+    height: 100vh;
+    background-color: v.$darkGrey;
+    overflow: hidden;
+    &--active {
+        .hero__layout {
+            width: 200vw;
+            height: 200vw;
+        }
+        .hero__title {
+            &--light {
+                margin-left: 9.8125rem;
+            }
+            &--bold {
+                margin-left: 11.1875rem;
+            }
+        }
+    }
+    &__background-content {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+    &__background-content {
+        
+    }
+    &__title {
+        @include t.mainTitle;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        width: 100vw;
+        display: inline-block;
+        color: v.$white;
+        
+        &--light {
+            font-weight: 100;
+            // margin-left: 9.8125rem;
+            margin-left: -150rem;
+            transition: 0.5s ease-in-out;
+        }
+        &--bold {
+            font-weight: 800;
+            // margin-left: 11.1875rem;   
+            position: relative;
+            top: -8rem;
+            margin-left: 150rem;
+            transition: 0.5s ease-in-out;
+        }
+    }
+    
+    video {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100vw;
+        pointer-events: none;
+    }
+    &__layout {
+        border-radius: 100%;
+        background-color: black;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 50rem;
+        height: 50rem;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+        z-index: 1;
+        transition: 0.5s ease-in-out;
+    }
+}

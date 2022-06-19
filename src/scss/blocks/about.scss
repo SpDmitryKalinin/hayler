@@ -1,0 +1,53 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+
+
+.about {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    color: v.$darkOrange;
+    background-color: v.$darkGrey;
+
+    @include m.resTablet {
+        color: red;
+    }
+    &__content {
+        width: 100%;
+        overflow: visible;
+        align-items: center;
+        max-height: 100vh;
+        transition: 0.5s linear;
+        min-width: 100vw;
+        @include t.mainTitle;
+        margin-left: 10em;
+        display: flex;
+    }
+    &__title {
+        position: relative;
+        min-width: min-content;
+        white-space: nowrap;
+        left: 0;
+        max-width: max-content;
+        @include t.mainTitle;
+        &--stroke {
+            color: v.$darkGrey;
+            text-shadow: 2px 0 2px v.$orange, 
+            0 2px 2px v.$orange, 
+            -2px 0 2px v.$orange, 
+            0 -2px 2px v.$orange;  
+        }
+    }
+    &__column {
+        top: 100%;
+        opacity: 0;
+        min-width: 25rem;
+        max-width: 25rem;
+        margin-left: 40px;
+        position: relative;
+        transition: 0.5s ease-in-out;
+    }
+}

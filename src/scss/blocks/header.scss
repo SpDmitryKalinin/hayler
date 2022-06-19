@@ -1,0 +1,183 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+@use 'mixins/containers.scss' as c;
+
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    padding: 1.875rem 11.125rem;
+    color: v.$white;
+    justify-content: space-between;
+    transition: 0.5s ease-in-out;
+    @include m.resTablet {
+        padding: 2rem 5rem;
+        &--active {
+            .header__controls {
+                max-height: 100vh;
+            }
+            .header__burger {
+                ellipse {
+                    display: none;
+                }
+                .header__burger-subtitle {
+                    display: inline-block;
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    font-weight: 800;
+                    &::before {
+                        content: '';
+                        background-color: v.$black;
+                        display: block;
+                        width: 1rem;
+                        height: 1rem;
+                        border-radius: 100%;
+                    }
+                }
+            }
+        }
+    }
+    @include m.resMobile {
+        padding: 1.5rem 1.25rem;
+        padding-right: 0;
+    }
+    &--inactive {
+        opacity: 0;
+    }
+    &__controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-width: 50%;
+        @include m.resTablet {
+            overflow: hidden;
+            max-height: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: #fff;
+            height: 100vh;
+            width: 100vw;
+            color: v.$black;
+            .lang-switcher {
+                position: absolute;
+                left: 6.25rem;
+                top: 3rem;
+                .lang-switcher__button {
+                    color: v.$black;
+                    &--active {
+                        color: v.$orange;
+                    }
+                }
+            }
+        }
+        
+    }
+    &__logo {
+        width: 8.25rem;
+        img {
+            width: 100%;
+        }
+        @include m.resTablet {
+            width: 15rem;
+        }
+        @include m.resMobile {
+            width: 5.625rem;
+        }
+
+    }
+    &__burger {
+        display: none;
+        @include m.resTablet {
+            display: block;
+            .header__burger-subtitle {
+                margin-top: -0.1em;
+                margin-left: -1.5em;
+                display: none;
+            }
+            .button {
+                display: flex;
+                align-items: center;
+                padding: 1rem;
+                @include m.resMobile {
+                    padding-right: 1.25rem;
+                }
+            }
+            display: block;
+            position: relative;
+            z-index: 1;
+            
+        }
+        
+    }
+    ul {
+        margin-right: 5rem;
+        align-items: center;
+        display: flex;
+        & [data-mobile] {
+            display: none;
+        }
+        & [data-circle] {
+            color: v.$white;
+            &::before {
+                display: block;
+                position: absolute;
+                top: 0;
+                content: "";
+                width: 100%;
+                height: 100%;
+                border-radius: 50px;
+                border: 1px solid v.$orange;
+                left: 50%;
+                transform: translateX(-50%);
+                transition: 0.3s ease-in-out;
+            }
+        }
+        @include m.resTablet {
+            margin: 0 auto;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1rem;
+            @include f.mobileHeaderMenu;
+            & [data-mobile] {
+                display: inline;
+            }
+            & [data-circle] {
+                color: v.$black;
+                &::before {
+                    display: none;
+                }
+            }
+        }
+        @include m.resMobile {
+
+        }
+        
+        li{
+            position: relative;
+            & {
+                transition: 0.3s ease-in-out;
+                a {
+                    display: inline-block;
+                    padding: 0.5rem 1.875rem;
+                }
+            }
+            &:hover {
+                color: v.$orange;
+                & [data-circle] {
+                    &::before {
+                        width: 2.1875rem
+                    }
+                }
+            }
+        }
+    }
+}

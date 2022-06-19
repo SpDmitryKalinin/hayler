@@ -1,0 +1,33 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+
+
+@mixin button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+@mixin langSwitcher {
+    font-size: 0.9375rem;
+    line-height: 1.533333333333333;
+    font-weight: 600;
+    padding: 0.5rem;
+    transition: 0.3s ease-in-out;
+    @include m.resTablet {
+        font-size: 3rem;
+        line-height: 1;
+    }
+    @include m.resMobile {
+        font-size: 2rem;
+        line-height: 1;
+    }
+    &:hover {
+        color: v.$orange;
+    }
+}

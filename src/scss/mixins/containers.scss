@@ -1,0 +1,10 @@
+@use 'mixins/media.scss' as m;
+
+@mixin mainContainer {
+    margin-left: 12.5rem;
+    margin-right: 12.5rem;
+    @include m.resMobile {
+        margin-left: 1.25rem;
+        margin-right: 1.25rem;
+    }
+}

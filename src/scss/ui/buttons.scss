@@ -1,0 +1,16 @@
+@use './../mixins/buttons.scss' as b;
+
+ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+.button {
+    @include b.button;
+}
+
+.button{
+    &--lang-switcher {
+        @include b.langSwitcher;
+    }
+}

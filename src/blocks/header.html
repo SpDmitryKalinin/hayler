@@ -1,0 +1,32 @@
+
+<!--Класс inactive дается только на главной странице-->
+
+<div class="header">
+    <a href="#">
+        <div class="header__logo">
+            <img src="./assets/img/icons/logo.svg" />
+        </div>
+    </a>
+    
+    <div class="header__controls">
+        <ul>
+            <li><a data-mobile href="#">Главная</a></li>
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Бренды</a></li>
+            <li><a href="#">Карьера</a></li>
+            <li><a href="#">Сотрудничество</a></li>
+            <li><a href="#" data-circle>Контакты</a></li>
+        </ul>
+        @@include('./../components/lang-switcher.html', {})
+    </div>
+    <div class="header__burger">
+        <button class="button">
+            <svg width="38" height="26" viewBox="0 0 38 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="18" cy="12" rx="2.05806" ry="2" fill="white"/>
+                <ellipse cx="8" cy="12" rx="2.05806" ry="2" fill="white"/>
+                <ellipse cx="28" cy="12" rx="2.05806" ry="2" fill="white"/>
+            </svg>
+            <span class="header__burger-subtitle">Закрыть</span>
+        </button>
+    </div>
+</div>
