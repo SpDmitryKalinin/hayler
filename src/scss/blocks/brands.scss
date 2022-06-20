@@ -27,7 +27,6 @@
         margin-bottom: 7.5rem;
         @include m.resMobile {
             width: 100%;
-            @include f.paragraphLarge();
             margin-bottom: 5.125rem;
         }
     }
