@@ -13,6 +13,10 @@
     line-height: 1.2192;
     font-style: normal;
     font-weight: 500;
+    @include m.resMobile {
+        font-size: 0.9375rem;
+        line-height: 1.333333333333333rem;
+    }
 }
 
 @mixin paragraphDefault {
@@ -20,6 +24,20 @@
     font-style: normal;
     font-weight: 300;
     line-height: 1.6;
+}
+
+@mixin paragraphDefaultMedium {
+    @include paragraphDefault;
+    font-weight: 500;
+}
+
+@mixin paragraphDefaultRegular {
+    @include paragraphDefault;
+    font-weight: 400;
+    @include m.resMobile {
+        font-size: 0.625rem;
+        line-height: 1.5rem;
+    }
 }
 
 @mixin paragraphDefaultBold {
