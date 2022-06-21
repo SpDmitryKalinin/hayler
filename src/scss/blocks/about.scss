@@ -21,17 +21,20 @@
         align-items: center;
         max-height: 100vh;
         transition: 0.5s linear;
-        min-width: 100vw;
         @include t.mainTitle;
-        margin-left: 10em;
         display: flex;
+        height: max-content;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
     }
     &__title {
         position: relative;
         min-width: min-content;
         white-space: nowrap;
-        left: 0;
         max-width: max-content;
+        // margin-left: -16.1em;
+        margin-left: 10em;
         @include t.mainTitle;
         &--stroke {
             color: v.$darkGrey;
@@ -42,12 +45,28 @@
         }
     }
     &__column {
-        top: 100%;
-        opacity: 0;
+        top: 0;
+        opacity: 1;
         min-width: 25rem;
         max-width: 25rem;
         margin-left: 40px;
         position: relative;
         transition: 0.5s ease-in-out;
+        align-self: flex-end;
+        color: v.$black;
+        top: 100vh;
+    }
+    &__subtitle {
+        @include f.paragraphDefault();
+        line-height: 1.6;
+        font-weight: 300;
+    }
+    &__paragraph {
+        line-height: 1.2;
+        margin-top: 1.3125rem;
+        span {
+            color: v.$orange;
+        }   
+        
     }
 }
