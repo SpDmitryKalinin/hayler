@@ -27,10 +27,14 @@
     &__box {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 7.5rem;
+        & + & {
+            margin-top: 7.5rem;
+        }
         @include m.resMobile {
             flex-direction: column;
-            margin-bottom: 5rem;
+            & + & {
+                margin-top: 5rem;
+            }
         }
     }
 
