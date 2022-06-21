@@ -43,8 +43,14 @@
     position: relative;
     overflow: hidden;
     transition: 0.3s ease-in-out;
+    &:disabled {
+        pointer-events: none;
+        color: v.$lightGrey;
+        border-color: v.$lightGrey;
+    }
     &:hover {
         border-color: v.$orange;
+        color: v.$orange;
     }
     @include m.resMobile {
         margin-top: 0;

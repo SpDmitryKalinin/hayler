@@ -22,6 +22,7 @@
     line-height: 1.6;
     @include m.resMobile {
         font-size: 0.9375rem;
+        line-height: 1.333333333333333;
     }
 }
 

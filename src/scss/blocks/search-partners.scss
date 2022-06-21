@@ -1,0 +1,98 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+@use 'mixins/containers.scss' as c;
+
+.search-partners {
+    @include c.mainContainer();
+
+    &__container {
+        margin-top: 7.5rem;
+        @include m.resMobile {
+            margin-top: 1.875rem;
+        }
+    }
+
+    &__title {
+        @include t.h2();
+        max-width: 54.1875rem;
+        margin-bottom: 7.5rem;
+        @include m.resMobile {
+            max-width: 20rem;
+            margin-bottom: 5rem;
+        }
+    }
+
+    &__box {
+        display: flex;
+        justify-content: space-between;
+        & + & {
+            margin-top: 7.5rem;
+        }
+        @include m.resMobile {
+            flex-direction: column;
+            & + & {
+                margin-top: 5rem;
+            }
+        }
+    }
+
+    &__info-box {
+        border-top: 1px solid #000000;
+        width: 42.875rem;
+        padding-top: 1.875rem;
+        @include m.resMobile {
+            border-top: none;
+            width: 88%;
+        }
+    }
+
+    &__subtitle {
+        @include t.h3();
+        margin-bottom: 3.5625rem;
+        @include m.resMobile {
+            margin-bottom: 1.875rem;
+        }
+    }
+
+    &__paragraph-box {
+        margin-bottom: 3.5rem;
+        @include m.resMobile {
+            margin-bottom: 1.875rem;
+            max-width: 100%;
+        }
+    }
+
+    &__paragraph {
+        max-width: 100%;
+        @include f.paragraphDefault();
+        & + & {
+            margin-top: 1rem;
+        }
+    }
+
+    &__list { 
+        @include m.resMobile {
+            margin-bottom: 1.875rem;
+        }
+    }
+
+    &__list-item {
+        @include f.paragraphDefaultMedium();
+    }
+
+    &__image-box {
+        width: 46.375rem;
+        @include m.resMobile {
+            width: 100%;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+}

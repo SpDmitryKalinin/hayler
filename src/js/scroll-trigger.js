@@ -36,52 +36,42 @@ let tl = gsap.timeline({
         start: "top top",
         end: `+=${windowHeight * 1}`,
     } 
-
-    
 });
 
 const contentAbout = document.querySelector('.about__content');
-const titleAbout = contentAbout.querySelector('.about__title');
+const titleAbout = document.querySelector('.about__title');
 const aboutColumn = document.querySelector('.about__column');
 
 let t2 = gsap.timeline({
-    onStart: () => {
-        console.log('onStart')
-    },  
     scrollTrigger: {
         trigger: ".about",
-        scrub: true,
         pin: true,
         pinType: 'fixed',
-
+        anticipatePin: 1,
         onEnter: () => {
             console.log('onEnter')
         },
         //markers: true,
         start: "top top",
-        end: `+=${windowHeight * 3}`,
+        end: `+=${windowHeight * 2}`,
         onStart: () => {
             contentAbout.style.marginLeft = '10em';
         },
         onUpdate: (self) => {
-            if(self.progress < 0.6) {
-                if(10 - self.progress * 50 < -15.9){
-    
-                    contentAbout.style.marginLeft = "-15.9em"
-                }
-                else {
-                    contentAbout.style.marginLeft = `${10 - self.progress * 50}em`
-                }
+            if(self.progress < 0.8) {
+                titleAbout.style.marginLeft = `${10 - 32.625 * self.progress}em`;
             }
-            if(self.progress > 0.65 && self.progress < 0.85){
-                aboutColumn.style.top = `${100 - ((self.progress - 0.65) * 500)}%`
-                if(100 - ((self.progress - 0.65) * 500) < 0){
-                    aboutColumn.style.top = '0%';
-                }
-                aboutColumn.style.opacity = `${(self.progress - 0.65) * 500}`
+            if(self.progress >0.4 && self.progress <0.8) {
+                aboutColumn.style.top = `${100 - (self.progress-0.4) * 250}vh`
+            }
+            else if(self.progress >= 0.8) {
+                titleAbout.style.marginLeft = `-16.1em`;
+                aboutColumn.style.top = '0'
             }
         } 
     } 
-    
 });
 
+function render() {
+    
+}
