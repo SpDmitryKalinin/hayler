@@ -36,12 +36,10 @@ let tl = gsap.timeline({
         start: "top top",
         end: `+=${windowHeight * 1}`,
     } 
-
-    
 });
 
 const contentAbout = document.querySelector('.about__content');
-const titleAbout = contentAbout.querySelector('.about__title');
+const titleAbout = document.querySelector('.about__title');
 const aboutColumn = document.querySelector('.about__column');
 
 let t2 = gsap.timeline({
