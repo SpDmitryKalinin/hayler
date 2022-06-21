@@ -20,6 +20,9 @@
     font-style: normal;
     font-weight: 300;
     line-height: 1.6;
+    @include m.resMobile {
+        font-size: 0.9375rem;
+    }
 }
 
 @mixin paragraphDefaultMedium {
@@ -43,6 +46,10 @@
 @mixin paragraphDefaultBold {
     @include paragraphDefault;
     font-weight: 800;
+    @include m.resMobile {
+        font-size: 0.625rem;
+        line-height: 1.5;
+    }
 }
 
 @mixin mobileHeaderMenu {
