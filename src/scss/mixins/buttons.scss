@@ -31,3 +31,24 @@
         color: v.$orange;
     }
 }
+
+@mixin buttonDefault {
+    @include button();
+    width: 18.8125rem;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    padding: 1.6875rem 0 1.6875rem 0;
+    @include f.paragraphDefaultBold();
+    line-height: 1;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+    &:hover {
+        border-color: v.$orange;
+    }
+    @include m.resMobile {
+        margin-top: 0;
+        width: 10.875rem;
+        padding: 0.9375rem 0 0.9375rem 0;
+    }
+}

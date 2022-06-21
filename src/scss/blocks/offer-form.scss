@@ -3,6 +3,7 @@
 @use 'mixins/media.scss' as m;
 @use 'mixins/titles.scss' as t;
 @use 'mixins/containers.scss' as c;
+@use 'mixins/buttons.scss' as b;
 
 .offer-form {
     @include c.mainContainer();
@@ -60,6 +61,11 @@
         outline: none;
         @include f.paragraphDefault();
         line-height: 1.4;
+        transition: 0.3s ease-in-out;
+        padding-left: 1rem;
+        &:focus {
+            border-color: v.$orange;
+        }
         @include m.resMobile {
             font-size: 0.625rem;
             line-height: 1.4;
@@ -76,24 +82,12 @@
     }
 
     &__button {
-        outline: none;
-        background-color: inherit;
-        width: 18.8125rem;
-        border: 2px solid #000000;
-        border-radius: 20px;
-        padding: 1.6875rem 0 1.6875rem 0;
-        @include f.paragraphDefaultBold();
-        line-height: 1;
         margin-top: 0.9375rem;
         margin-left: auto;
-        @include m.resMobile {
-            margin-top: 0;
-            width: 10.875rem;
-            padding: 0.9375rem 0 0.9375rem 0;
-        }
+        @include b.buttonDefault;
     }
+}
 
-    &__button:hover {
-        cursor: pointer;
-    }
+.buttonAAA {
+    @include b.buttonDefault
 }
