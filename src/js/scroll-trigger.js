@@ -12,61 +12,40 @@ ScrollTrigger.create({
     end: "bottom top+=1",
 });
 
-const header = document.querySelector('.header');
-const heroLayout = document.querySelector('.hero__layout');
-const heroTitleLight = document.querySelector('.hero__title--light');
-const heroTitleBold = document.querySelector('.hero__title--bold');
-
-let tl = gsap.timeline({
-    onStart: () => {
-        console.log('onStart')
-    },  
-    scrollTrigger: {
-        scrub: true,
-        trigger: ".hero",
-        pin: true,
-        pinType: "fixed",
-        onStart: () => {
-            header.style.opacity = 0;
-        },
-        onEnter: () => {
-            console.log('onEnter')
-        },
-        //markers: true,
-        start: "top top",
-        end: `+=${windowHeight * 1}`,
-    } 
-});
-
-const contentAbout = document.querySelector('.about__content');
-const titleAbout = document.querySelector('.about__title');
-const aboutColumn = document.querySelector('.about__column');
+const about = document.querySelector('.about');
+const contentAbout = about.querySelector('.about__content');
+const titleAbout = about.querySelector('.about__title');
+const aboutColumn = about.querySelector('.about__column');
+const aboutTitleStroke = about.querySelector('.about__title--stroke');
 
 let t2 = gsap.timeline({
     scrollTrigger: {
         trigger: ".about",
         pin: true,
         pinType: 'fixed',
+        scrub: 0.5,
         anticipatePin: 1,
         onEnter: () => {
             console.log('onEnter')
         },
         //markers: true,
         start: "top top",
-        end: `+=${windowHeight * 2}`,
-        onStart: () => {
-            contentAbout.style.marginLeft = '10em';
-        },
+        end: `+=${windowHeight * 1.5}`,
         onUpdate: (self) => {
             if(self.progress < 0.8) {
-                titleAbout.style.marginLeft = `${10 - 32.625 * self.progress}em`;
+                titleAbout.style.marginLeft = `${10 - (32.625 * (self.progress))}em`;
+                aboutColumn.style.top = `${150 - (self.progress * 180) * (self.progress / 0.8)}rem`
+                
             }
-            if(self.progress >0.4 && self.progress <0.8) {
-                aboutColumn.style.top = `${100 - (self.progress-0.4) * 250}vh`
+            if(self.progress > 0.4 && self.progress < 0.8) {
+                about.style.backgroundColor = `rgb(${35 + (self.progress -0.4) * 552.5},${40 + (self.progress -0.4) * 537.5},${40 + (self.progress -0.4) * 532.5})`
+                aboutTitleStroke.style.color = `rgb(${35 + (self.progress -0.4) * 552.5},${40 + (self.progress -0.4) * 537.5},${40 + (self.progress -0.4) * 532.5})`
             }
-            else if(self.progress >= 0.8) {
+            if(self.progress >= 0.8) {
+                about.style.backgroundColor = 'rgb(255, 255, 255)';
+                aboutTitleStroke.style.color = 'rgb(255, 255, 255)';
                 titleAbout.style.marginLeft = `-16.1em`;
-                aboutColumn.style.top = '0'
+                aboutColumn.style.top = "4rem";
             }
         } 
     } 
