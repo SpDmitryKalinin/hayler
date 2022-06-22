@@ -1,0 +1,55 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+@use 'mixins/containers.scss' as c;
+@use 'mixins/buttons.scss' as b;
+
+.title-w-paragraph {
+    @include c.mainContainer();
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        @include m.resMobile {
+            flex-direction: column;
+        }
+    }
+
+    &__title-box {
+        width: 39.375rem;
+        @include m.resMobile {
+            width: 100%;
+            margin-bottom: 1.6875rem;
+        }
+    }
+
+    &__title {
+        @include t.h2(); 
+        line-height: 1.4;
+        max-width: 100%;
+    }
+
+    &__text-box {
+        width: 46.25rem;
+        @include m.resMobile {
+            width: 100%;
+        }
+    }
+
+    &__text {
+        @include f.paragraphDefault();
+        & + & {
+            margin-top: 2.8125rem;
+        }
+        @include m.resMobile {
+            & + & {
+                margin-top: 1.333333333333333rem;
+            }
+        }
+    }
+
+    &__span {
+        color: v.$orange;
+    }
+}
