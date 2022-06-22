@@ -10,14 +10,17 @@
 
     &__container {
         display: flex;
-        justify-content: space-between;
+        gap: 8rem;
         @include m.resMobile {
             flex-direction: column;
+            gap: 0;
         }
+        
     }
 
     &__title-box {
         width: 39.375rem;
+        min-width: 39.375rem;
         @include m.resMobile {
             width: 100%;
             margin-bottom: 1.6875rem;
@@ -31,7 +34,6 @@
     }
 
     &__text-box {
-        width: 46.25rem;
         @include m.resMobile {
             width: 100%;
         }
