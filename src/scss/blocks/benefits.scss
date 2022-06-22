@@ -31,10 +31,7 @@
     }
 
     &__info-box {
-        display: flex;
-        flex-direction: column;
         width: 46.25rem;
-        justify-content: center;
         @include m.resMobile {
             width: 100%;
         }
@@ -43,6 +40,7 @@
     &__card-box {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         & + & {
             margin-top: 7.5rem;
         }
