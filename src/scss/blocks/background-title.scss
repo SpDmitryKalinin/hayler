@@ -1,0 +1,83 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+@use 'mixins/containers.scss' as c;
+@use 'mixins/buttons.scss' as b;
+
+.background-title {
+    @include c.mainContainer();
+
+    &__container {
+        display: flex;
+        gap: 4.3125rem;
+        justify-content: space-between;
+        @include m.resMobile {
+            flex-direction: column;
+            gap: 1.5625rem;
+        }
+    }
+
+    &__title-box {
+        min-width: 68.0625rem;
+        width: 68.0625rem;
+        background: url(https://s3-alpha-sig.figma.com/img/5de7/f3a0/65f61b6c7b691dceca2957035ba919e0?Expires=1659312000&Signature=V7bqcKOi3gfwze7OlJwsK8bOaSoQhD2OTXRCec8-Nf-TBX0L~6iz~Iu-xIb5P2LxJtMQotIEvKyy4qKYRYLWiocdqdgsRgctSGR9Nmyt9Z5hO5agliBfmhJ2eDOwA1APjY9MDHatKk1zuRJpUNiUC~Z~dlYcrGLrCQeormc1HKlX2gsRtWFwDWQZCrd9Yq7bjVLDLnAv8pGjp4BRoq1wWeLtsX4jkiCOLitP5PJHo6st91VoSi-u8Km6ZEaKCcL10K7IrYkQ9Os7rSzcQmfui7dOM2UzgYi0ENqIBdlr1wAxz8spCKvLGPWKA1ccae5R8L6af4r62Kn0PqIpOoSaPQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA);
+        position: relative;
+        background-position: 75% 45%;
+        height: 100%;
+        &::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: rgba(255, 77, 0, 0.7);
+        }
+        @include m.resMobile {
+            width: 20.25rem;
+            min-width: 20.25rem;
+        }
+    }
+
+    &__title {
+        width: 100%;
+        color: #000;
+        background: #fff;
+        mix-blend-mode: lighten;
+        font-size: 9.6875rem;
+        line-height: 0.8;
+        font-weight: 800;
+        text-align: end;
+        padding-bottom: 1rem;
+        @include m.resMobile {
+            font-size: 2.875rem;
+            line-height: 0.8;
+            text-align: left;
+            padding-bottom: 0.3rem;
+        }
+    }
+
+    &__info-box {
+        width: 22.5rem;
+        margin-top: auto;
+        @include m.resMobile {
+            width: 14.1875rem;
+        }
+    }
+
+    &__subtitle {
+        font-size: 1.875rem;
+        line-height: 1.2;
+        font-weight: 400;
+        width: 100%;
+        margin-bottom: 4.0625rem;
+        @include m.resMobile {
+            font-size: 0.9375rem;
+            margin-bottom: 1.4375rem;
+        }
+    }
+
+    &__button { 
+        @include b.buttonDefault();
+        padding: 1.5625rem 0 1.5625rem 0;
+    }
+}
