@@ -1,0 +1,60 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+@use 'mixins/containers.scss' as c;
+@use 'mixins/buttons.scss' as b;
+
+.footer {
+    color: v.$white;
+    background-color: v.$darkGrey;
+    padding: 4rem 13.125rem;
+    &__top {
+        
+    }
+    &__paragraph {
+        margin-top: 3.125rem;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    &__email {
+        display: block;
+        text-align: center;
+        @include b.buttonGhost;
+    }
+    &__navigation {
+        margin-top: 4.25rem;
+        width: 100%;
+        border-top: 2px solid v.$white;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 0.5rem;
+        ul {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            gap: 5.3125rem;
+        }
+    }
+
+    &__button-top {
+        width: 3.125rem;
+        height: 3.125rem;
+        svg {
+            width: 1.5rem;
+            height: 0.5rem;
+        }
+    }
+
+    &__bottom {
+        margin-top: 2.25rem;
+        display: flex;
+        justify-content: space-between;
+        
+    }
+
+    &__author {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+}

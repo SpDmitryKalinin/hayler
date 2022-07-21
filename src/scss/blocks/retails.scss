@@ -1,0 +1,42 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+@use 'mixins/containers.scss' as c;
+
+
+.retails {
+    min-height: max(400px, 100vh);
+    background-color: v.$darkGrey;
+    padding: 12.5rem;
+    padding-top: 0;
+    margin-top: -1px;
+    &__title {
+        max-width: 70rem;
+        font-size: 4.0625rem;
+        line-height: 1.08;
+        font-weight: 500;
+        color: v.$white;
+        &--orange {
+            color: v.$orange;
+        }
+    }
+
+    &__partners {
+        margin-top: 10rem;
+        margin-left: 9rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12.5rem;
+    }
+
+    &__partner {
+        height: 6.25rem;
+        img {
+            height: 100%;
+            object-fit: contain;
+            width: 100%;
+        }
+    }
+    
+}

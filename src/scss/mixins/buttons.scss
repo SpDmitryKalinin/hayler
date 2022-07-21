@@ -58,3 +58,26 @@
         padding: 0.9375rem 0 0.9375rem 0;
     }
 }
+
+@mixin buttonWhite {
+    @include buttonDefault();
+    border: 2px solid v.$white;
+    color: v.$white;
+    &:hover {
+        background-color: v.$white;
+        border-color: v.$white;
+    }
+}
+
+@mixin buttonGhost {
+    @include buttonDefault();
+    border: 2px solid v.$orange;
+    background-color: transparent;
+    color: v.$white;
+    border-radius: 3.125rem;
+    &:hover {
+        background-color: v.$white;
+        border-color: v.$white;
+        
+    }
+}

@@ -35,7 +35,7 @@ if(header) {
                 sections.forEach(section => {
                     //TODO
                     if(section.offsetTop <= window.scrollY && window.screenY <=  section.offsetTop + section.offsetHeight){
-                        console.log(section.offsetTop, section.offsetTop + section.offsetHeight, window.scrollY, section);
+                        //console.log(section.offsetTop, section.offsetTop + section.offsetHeight, window.scrollY, section);
                     }
                 })
                 window.requestAnimationFrame(toggleHeader)

@@ -7,6 +7,9 @@ ul {
 
 .button {
     @include b.button;
+    &--white {
+        @include b.buttonWhite;
+    }
 }
 
 .button{

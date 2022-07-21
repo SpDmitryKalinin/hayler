@@ -1,0 +1,81 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+@use 'mixins/containers.scss' as c;
+@use 'mixins/buttons.scss' as b;
+
+.team {
+    min-height: max(400px, 100vh);
+    background-color: v.$darkGrey;
+    position: relative;
+    &__title {
+        @include t.mainTitle;
+        color: v.$orange;
+        font-weight: 800;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 120rem;
+        white-space: nowrap;
+    }
+
+    &__content {
+        max-width: 28.125rem;
+        position: absolute;
+        left: 60rem;
+        // top: 50%;
+        // transform: translateY(-50%);
+        top: 100%;
+        transform: translateY(0);
+    }
+
+    &__content-header {
+        max-width: 24.5rem;
+        font-size: 1.875rem;
+        line-height: 1.166666666666667;
+        font-weight: 500;
+        &--orange {
+            color: v.$orange;
+        }
+    }
+
+    &__content-paragraphs {
+        margin-top: 3.125rem;
+    }
+
+    &__content-paragraph {
+        & + & {
+            margin-top: 3.125rem;
+        }
+    }
+
+    &__content-button {
+        @include b.buttonDefault();
+        display: inline-block;
+        margin-top: 3.125rem;
+        
+    }
+
+    &__aside {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(100%,-50%);
+        width: 15rem;
+        &::before {
+            content: "";
+            display: block;
+            padding-top: 227%;
+        }
+        video {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-position: 52%;
+            object-fit: cover;
+        }
+    }
+}

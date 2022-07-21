@@ -20,12 +20,14 @@
     position: relative;
     overflow: auto;
     height: 100vh;
+    min-height: 400px;
     background-color: v.$darkGrey;
     overflow: hidden;
     &--active {
         .hero__layout {
-            width: 200vw;
-            height: 200vw;
+            width: 100vw;
+            height: 100vh;
+            border-radius: 0;
         }
         .hero__title {
             &--light {
@@ -40,9 +42,7 @@
         height: 100%;
         width: 100%;
         overflow: hidden;
-    }
-    &__background-content {
-        
+        position: relative;
     }
     &__title {
         @include t.mainTitle;
@@ -56,6 +56,7 @@
         width: 100vw;
         display: inline-block;
         color: v.$white;
+        line-height: unset;
         
         &--light {
             font-weight: 100;
@@ -78,8 +79,13 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        width: 100vw;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
         pointer-events: none;
+        &::-webkit-media-controls {
+            display:none !important;
+        }
     }
     &__layout {
         border-radius: 100%;

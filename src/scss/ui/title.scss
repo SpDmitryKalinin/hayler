@@ -1,0 +1,13 @@
+@use 'mixins/titles.scss' as t;
+
+h1 {
+    @include t.h1;
+}
+
+h2 {
+    @include t.h2;
+}
+
+h3 {
+    @include t.h3;
+}

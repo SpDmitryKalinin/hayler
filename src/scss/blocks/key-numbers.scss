@@ -1,0 +1,84 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+@use 'mixins/containers.scss' as c;
+
+.key-numbers {
+    padding: 5rem 0;
+    min-height: max(400px, 100vh);
+    display: flex;
+    flex-direction: column;
+    background-color: v.$darkGrey;
+    &__header, &__footer {
+        display: flex;
+        align-items: center;
+        margin: 13.75rem 18.75rem 6.25rem 18.75rem;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    &__footer {
+        display: flex;
+        align-items: center;
+        margin: 0 23.5rem 0 25.75rem;
+    }
+
+    &__clients {
+        display: flex;
+        flex-direction: column;
+        color: v.$white;
+    }
+
+    &__clients-number, &__countries-number {
+        font-size: 8rem;
+        line-height: 1;
+        font-weight: 800;
+    }
+    &__clients-subtitle, &__brands-subtitle, &__countries-subtitle, &__rating-subtitle {
+        line-height: 1;
+        @include f.bigText;
+        font-weight: 800;
+    }
+
+    &__brands, &__countries, &__rating {
+        display: flex;
+        align-items: center;
+        color: v.$white;
+        font-weight: 800;
+        line-height: 1;
+    }
+
+    &__countries {
+        color: v.$orange;
+    }
+
+    &__countries-number {
+        display: inline-block;
+        min-width: 8.125rem;
+    }
+
+    &__brands-number, &__rating-number {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 5rem;
+        background-color: v.$orange;
+        border-radius: 100%;
+        margin-right: 1rem;
+        width: 10rem;
+        height: 10rem;
+    }
+
+    &__rating {
+
+    }
+    &__rating-number {
+        width: 16rem;
+        height: 16rem;
+        background-color: v.$white;
+        color: v.$darkGrey;
+        margin-right: 2rem;
+    }
+    
+}
