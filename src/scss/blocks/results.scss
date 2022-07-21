@@ -1,0 +1,103 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+@use 'mixins/containers.scss' as c;
+
+.results {
+    min-height: max(400px, 100vh);
+    width: 100%;
+    position: relative;
+    padding: 12.5rem 13.125rem;
+    &__background {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        
+        z-index: -1;
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: -2;
+        }
+    }
+    &__filter {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background-color: RGBA(255,77,0, 0.7);
+    }
+    &__title {
+        max-width: 64.375rem;
+        line-height: 1.1;
+        color: v.$white;
+    }
+
+    &__companies {
+        width: 100%;
+        margin-top: 9.375rem;
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(3, minmax(33%, 1fr));
+        gap: 2rem 0;
+    }
+    &__companies-item {
+        position: relative;
+        padding: 2rem 0;
+        &:first-child {
+            .results__companies-item-subtitle {
+                max-width: 22.5rem;
+            }
+        }
+        &:nth-child(3n) {
+            justify-self:end;
+        }
+        &:nth-child(3n - 2) {
+            justify-self: start;
+        }
+        &:nth-child(3n - 1) {
+            text-align: center;
+            .results__companies-item-subtitle {
+                max-width: 15.625rem;
+            }
+            &::before, &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                display: block;
+                width: 3px;
+                height: 100%;
+                background-color: v.$white;
+            }
+            &::before {
+                left: 0;
+            }
+            &::after {
+                right: 0;
+            }
+        }
+    }
+    &__companies-item-logo {
+        margin: 0 auto;
+        max-width: 12.5rem;
+        img {
+            width: 100%;
+        }
+    }
+
+    &__companies-item-subtitle {
+        margin-top: 2.8125rem;
+        text-align: center;
+        color: v.$white;
+        max-width: 23.75rem;
+    }
+    &__companies-item-wrap {
+        display: inline-block;
+    }
+}
