@@ -19,6 +19,7 @@ if(header) {
         langSwitcher.style.opacity = 0;
         burger.style.transition = '';
         langSwitcher.style.transition = '';
+        
         header.classList.toggle('header--active');
         setTimeout(()=> {
             burger.style.transition = '0.5s ease-in-out';
