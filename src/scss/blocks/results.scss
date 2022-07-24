@@ -5,10 +5,13 @@
 @use 'mixins/containers.scss' as c;
 
 .results {
-    min-height: max(400px, 100vh);
     width: 100%;
     position: relative;
     padding: 12.5rem 13.125rem;
+    @include m.resTablet {
+        min-height: auto;
+        padding: 3.8125rem 1.25rem;
+    }
     &__background {
         position: absolute;
         left: 0;
@@ -46,10 +49,19 @@
         align-items: center;
         grid-template-columns: repeat(3, minmax(33%, 1fr));
         gap: 2rem 0;
+        @include m.resTablet {
+            display: block;
+            margin-top: 4.125rem;
+        }
     }
     &__companies-item {
         position: relative;
         padding: 2rem 0;
+        @include m.resTablet {
+            & + & {
+                border-top: 1px solid v.$white;
+            }
+        }
         &:first-child {
             .results__companies-item-subtitle {
                 max-width: 22.5rem;
@@ -63,6 +75,9 @@
         }
         &:nth-child(3n - 1) {
             text-align: center;
+            @include m.resTablet {
+                text-align: left;
+            }
             .results__companies-item-subtitle {
                 max-width: 15.625rem;
             }
@@ -74,6 +89,9 @@
                 width: 3px;
                 height: 100%;
                 background-color: v.$white;
+                @include m.resTablet {
+                    display: none;
+                }
             }
             &::before {
                 left: 0;
@@ -89,6 +107,11 @@
         img {
             width: 100%;
         }
+
+        @include m.resTablet {
+            margin: 0;
+        }
+        
     }
 
     &__companies-item-subtitle {
@@ -96,6 +119,10 @@
         text-align: center;
         color: v.$white;
         max-width: 23.75rem;
+        @include m.resTablet {
+            text-align: left;
+            margin-top: 1.375rem;
+        }
     }
     &__companies-item-wrap {
         display: inline-block;

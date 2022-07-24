@@ -6,39 +6,73 @@
 
 .key-numbers {
     padding: 5rem 0;
-    min-height: max(400px, 100vh);
     display: flex;
     flex-direction: column;
     background-color: v.$darkGrey;
-    &__header, &__footer {
+    @include m.resTablet {
+        padding: 6.25rem 0;
+        gap: 5vw;
+        padding: 6.25rem 5.56vw 6.25rem;
+    }
+
+    @include m.resMobile {
+        padding-top: 3.5rem;
+    }
+
+    &__header {
         display: flex;
         align-items: center;
         margin: 13.75rem 18.75rem 6.25rem 18.75rem;
         justify-content: space-between;
         gap: 2rem;
+        @include m.resTablet {
+            margin: 0;
+            gap: 0;
+            display: block;
+        }
     }
 
     &__footer {
         display: flex;
         align-items: center;
         margin: 0 23.5rem 0 25.75rem;
+        justify-content: space-between;
+        @include m.resTablet {
+            margin: 0;
+            gap: 0;
+            display: block;
+        }
     }
 
     &__clients {
         display: flex;
         flex-direction: column;
         color: v.$white;
+        @include m.resTablet {
+            margin-bottom: 10vw;
+        }
     }
 
     &__clients-number, &__countries-number {
         font-size: 8rem;
         line-height: 1;
         font-weight: 800;
+        @include m.resTablet {
+            font-size: 17vw;
+        }
+    }
+    &__countries-number {
+        @include m.resTablet {
+            font-size: 19vw;
+        }
     }
     &__clients-subtitle, &__brands-subtitle, &__countries-subtitle, &__rating-subtitle {
         line-height: 1;
         @include f.bigText;
         font-weight: 800;
+        @include m.resTablet {
+            font-size: 6vw;
+        }
     }
 
     &__brands, &__countries, &__rating {
@@ -49,13 +83,27 @@
         line-height: 1;
     }
 
+    &__brands {
+        @include m.resTablet {
+            justify-content: end;
+        }
+        
+    }
+
     &__countries {
         color: v.$orange;
+        @include m.resTablet {
+            margin-bottom: 10vw;
+        }
     }
 
     &__countries-number {
         display: inline-block;
         min-width: 8.125rem;
+        @include m.resTablet {
+            min-width: auto;
+            margin-right: 3vw;
+        }
     }
 
     &__brands-number, &__rating-number {
@@ -68,6 +116,17 @@
         margin-right: 1rem;
         width: 10rem;
         height: 10rem;
+        @include m.resTablet {
+            font-size: 7.5vw;
+            width: 17vw;
+            height: 17vw;
+        }
+    }
+
+    &__rating-number {
+        @include m.resTablet {
+            font-size: 9.5vw;
+        }
     }
 
     &__rating {
@@ -79,6 +138,13 @@
         background-color: v.$white;
         color: v.$darkGrey;
         margin-right: 2rem;
+        @include m.resTablet {
+            width: 40vw;
+            height: 40vw;
+            min-width: 40vw;
+            min-height: 40vw;
+            margin-right: 5vw;
+        }
     }
     
 }

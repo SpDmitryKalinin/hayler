@@ -2,6 +2,9 @@
 
 @mixin mainTitle {
     font-size: 12.5rem;
+    @include m.resTablet {
+        font-size: 6.25rem
+    }
 }
 
 @mixin h1 {

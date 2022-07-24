@@ -8,13 +8,22 @@
 
 
 .about {
-    min-height: max(400px, 100vh);
     width: 100%;
     display: flex;
     overflow: hidden;
     color: v.$darkOrange;
     background-color: v.$darkGrey;
     position: relative;
+    height: max(400px, 100vh);
+    @include m.resTablet {
+        flex-direction: column;
+        padding: 1.25rem;
+        height: auto;
+        overflow: hidden;
+    }
+    @include m.resMobile {
+        padding: 4.375rem 1.25rem;
+    }
     &__content {
         width: 100%;
         overflow: visible;
@@ -27,6 +36,12 @@
         position: relative;
         top: 50%;
         transform: translateY(-50%);
+        @include m.resTablet {
+            flex-direction: column;
+            top: 0%;
+            transform: translateY(0);
+            align-items: flex-start;
+        }
     }
     &__title {
         position: relative;
@@ -45,6 +60,21 @@
             -2px 0 2px v.$orange, 
             0 -2px 2px v.$orange;  
         }
+        @include m.resTablet {
+            margin-left: 0;
+            min-width: auto;
+            max-width: auto;
+            overflow: hidden;
+            text-align: left;
+            position: relative;
+            left: calc(100% - 1.6em);
+            font-size: 10rem
+        }
+
+        @include m.resMobile {
+            @include t.mainTitle;
+        }
+        
     }
     &__column {
         position: absolute;
@@ -56,15 +86,42 @@
         color: v.$black;
         left: 62rem;
         top: 100rem;
+        @include m.resTablet {
+            position: relative;
+            left: 0;
+            top: 0;
+            min-width: auto;
+            max-width: 75%;
+            align-self: none;
+            align-self: flex-start;
+            margin-top: 6.25rem;
+            color: v.$white;
+        }
+        @include m.resMobile {
+            max-width: 17.1875rem;
+        }
+
     }
     &__subtitle {
         @include f.paragraphDefault();
         line-height: 1.6;
         font-weight: 300;
+        @include m.resTablet {
+            font-size: 1rem;
+        }
+        @include m.resMobile {
+            max-width: 11rem;
+        }
     }
     &__paragraph {
         line-height: 1.2;
         margin-top: 1.3125rem;
+        @include m.resTablet {
+            font-size: 1.5625rem;
+        }
+        @include m.resTablet {
+
+        }
         span {
             color: v.$orange;
         }   

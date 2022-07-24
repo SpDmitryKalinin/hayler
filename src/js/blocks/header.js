@@ -1,9 +1,10 @@
 const header = document.querySelector('.header');
 
 if(header) {
-    const burger = header.querySelector('.header__burger');
+    const burgers = document.querySelectorAll('.header__burger');
     const langSwitcher = header.querySelector('.lang-switcher');
     const sections = document.querySelectorAll('section');
+    let currentSection
     let prevScroll = 0;
     window.addEventListener('scroll', () => {
         let scrolled = window.scrollY;
@@ -14,35 +15,79 @@ if(header) {
         }
         prevScroll = scrolled;
     })
-    burger.addEventListener('click', () => {
-        burger.style.opacity = 0;
-        langSwitcher.style.opacity = 0;
-        burger.style.transition = '';
-        langSwitcher.style.transition = '';
-        
-        header.classList.toggle('header--active');
-        setTimeout(()=> {
-            burger.style.transition = '0.5s ease-in-out';
-            langSwitcher.style.transition = '0.5s ease-in-out';
-            burger.style.opacity = 1;
-            langSwitcher.style.opacity = 1;
-        }, 500)
+
+    burgers.forEach(burger => {
+        burger.addEventListener('click', () => {
+            header.classList.toggle('header--active');
+            burgers.forEach(burger => {
+                burger.style.opacity = 0;
+                langSwitcher.style.opacity = 0;
+                burger.style.transition = '';
+                langSwitcher.style.transition = '';
+                
+                
+                setTimeout(()=> {
+                    burger.style.transition = '0.5s ease-in-out';
+                    langSwitcher.style.transition = '0.5s ease-in-out';
+                    burger.style.opacity = 1;
+                    langSwitcher.style.opacity = 1;
+                }, 500)
+            })
+        })
     })
 
-    if(!document.querySelector('.pin-spacer')) {
-        toggleHeader();
-        function toggleHeader() {
-            setTimeout(() => {
-                sections.forEach(section => {
-                    //TODO
-                    if(section.offsetTop <= window.scrollY && window.screenY <=  section.offsetTop + section.offsetHeight){
-                        //console.log(section.offsetTop, section.offsetTop + section.offsetHeight, window.scrollY, section);
-                    }
-                })
-                window.requestAnimationFrame(toggleHeader)
-            }, 1000 / 15);
+    toggleHeader();
+
+    function savePositionsSections(sections) {
+        let positionArray = [];
+        sections.forEach(section => {
+            let position = {
+                section: section,
+                top: window.pageYOffset + section.getBoundingClientRect().top,
+                left: window.pageXOffset + section.getBoundingClientRect().left,
+                right: window.pageXOffset + section.getBoundingClientRect().right,
+                bottom: window.pageYOffset + section.getBoundingClientRect().bottom
+            }
+            positionArray.push(position);
+        })
+        return positionArray;
+    }
+
+    window.addEventListener('scroll', () => toggleHeader())
+
+    function toggleHeader() {
+        const sectionsPosition = savePositionsSections(sections)
+        let windowPosition = {
+            top: window.pageYOffset,
+            left: window.pageXOffset,
+            right: window.pageXOffset + document.documentElement.clientWidth,
+            bottom: window.pageYOffset + document.documentElement.clientHeight
+        };   
+        let tempSection = Array.from(sectionsPosition).reverse().find(sectionPosition => sectionPosition.top <= windowPosition.top + 20);
+        if(currentSection !== tempSection.section) {
+            currentSection = tempSection.section;
+            const windowHeight = window.innerHeight;
+            if(windowHeight >=1200) {
+                changeColorHeader(currentSection.dataset.header)
+            }
+            else {
+                changeColorHeader(currentSection.dataset.mheader)
+            }
+            
+        }
+        else {
+            return
         }
     }
-    
+
+    function changeColorHeader(color) {
+        
+        if(color === 'white') {
+            header.classList.remove('header--black');
+        }
+        else if(color === 'black'){
+            header.classList.add('header--black');
+        }
+    }
 }
 

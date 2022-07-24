@@ -12,12 +12,25 @@
     height: 100vh;
     min-height: 400px;
     align-items: center;
+    @include m.resTablet {
+        height: auto;
+        min-height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 3rem 1.25rem;
+    }
     &__title {
         @include t.mainTitle;
         font-weight: 800;
         color: v.$white;
-        max-width: 50rem;
         transform: translateX(-0.1em);
+        display: flex;
+        flex-direction: column;
+        @include m.resTablet {
+            font-size: 1.5625rem;
+            font-weight: 500;
+            flex-direction: row;
+        }
     }
 
     &__layout {
@@ -49,6 +62,11 @@
         color: v.$white;
         max-width: 46.3125rem;
         margin-left: 12.5rem;
+        @include m.resTablet {
+            margin-left: 0;
+            margin-top: 1.5625rem;
+            max-width: auto;
+        }
     }
 
     &__subtitle {
@@ -57,21 +75,43 @@
         width: 22.5rem;
         @include f.paragraphLarge;
         font-weight: 800;
+        & + & {
+            margin-top: 1rem;
+        }
+        @include m.resTablet {
+            width: 100%;
+            font-size: 1rem;
+            line-height: 1.125rem;
+            padding-bottom: 0.5rem;
+        }
     }
 
     &__value {
         margin-right: 1.25rem;
         @include t.h2;
         font-weight: 800;
+        @include m.resTablet {
+            font-size: 2.8125rem;
+            line-height: 3.4375rem;
+            margin-right: 0.5rem;
+        }
     }
     &__paragraph {
         margin-top: 3.125rem;
         @include f.paragraphLarge;
+        @include m.resTablet {
+            margin-top: 1.375rem;
+            font-size: 1rem;
+            line-height: 1.125rem;
+        }
         & + & {
             margin-top: 1.25rem;
         }
     }
     &__button {
         margin-top: 3.125rem;
+        @include m.resTablet {
+            margin-top: 1.375rem;
+        }
     }
 }

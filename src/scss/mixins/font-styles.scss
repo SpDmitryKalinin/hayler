@@ -58,6 +58,9 @@
     line-height: 1;
     font-weight: 500;
     letter-spacing: -0.03em;
+    @include m.resTablet {
+        font-size: 2.5rem;
+    }
     @include m.resMobile {
         font-size: 1.875rem;
     }

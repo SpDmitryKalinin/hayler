@@ -1,10 +1,11 @@
 const hero = document.querySelector('.hero');
 
-if(hero) {
-    const header = document.querySelector('.header');
+const windowWidth = window.innerWidth;
+if(hero && windowWidth > 1200) {
     const heroVideo = hero.querySelector('.hero__video');
+    heroVideo.pause();
     heroVideo.addEventListener('loadeddata', (e) => {
         hero.classList.add('hero--active');
-        header.classList.remove('header--inactive');
+        heroVideo.play();
     })
 }

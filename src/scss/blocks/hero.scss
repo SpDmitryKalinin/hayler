@@ -32,9 +32,15 @@
         .hero__title {
             &--light {
                 margin-left: 9.8125rem;
+                @include m.resTablet {
+                    margin-left: 0;
+                }
             }
             &--bold {
                 margin-left: 11.1875rem;
+                @include m.resTablet {
+                    margin-left: 0;
+                }
             }
         }
     }
@@ -43,6 +49,35 @@
         width: 100%;
         overflow: hidden;
         position: relative;
+        video {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            &::-webkit-media-controls {
+                display:none !important;
+            }
+            @include m.resTablet {
+                display: none;
+            }
+        }
+        img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            @include m.resDesktop {
+                display: none
+            }
+        }
     }
     &__title {
         @include t.mainTitle;
@@ -57,36 +92,34 @@
         display: inline-block;
         color: v.$white;
         line-height: unset;
+        @include m.resTablet {
+            font-size: 10vw;
+            width: auto;
+        }
         
         &--light {
             font-weight: 100;
-            // margin-left: 9.8125rem;
             margin-left: -150rem;
             transition: 0.5s ease-in-out;
+            @include m.resTablet {
+                margin-left: 0;
+            }
         }
         &--bold {
             font-weight: 800;
-            // margin-left: 11.1875rem;   
             position: relative;
             top: -8rem;
             margin-left: 150rem;
             transition: 0.5s ease-in-out;
+            @include m.resTablet {
+                top: -0.7em;
+                left: 0.15em;
+                margin-left: 0;
+            }
         }
     }
     
-    video {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        &::-webkit-media-controls {
-            display:none !important;
-        }
-    }
+    
     &__layout {
         border-radius: 100%;
         background-color: black;
@@ -99,5 +132,10 @@
         overflow: hidden;
         z-index: 1;
         transition: 0.5s ease-in-out;
+        @include m.resTablet {
+            width: 100vw;
+            height: 100vh;
+            border-radius: 0;
+        }
     }
 }

@@ -20,7 +20,7 @@
     padding: 0.5rem;
     transition: 0.3s ease-in-out;
     @include m.resTablet {
-        font-size: 3rem;
+        font-size: 1.5rem;
         line-height: 1;
     }
     @include m.resMobile {
@@ -36,7 +36,7 @@
     @include button();
     width: 18.8125rem;
     border: 2px solid #000000;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     padding: 1.6875rem 0 1.6875rem 0;
     @include f.paragraphDefaultBold();
     line-height: 1;
