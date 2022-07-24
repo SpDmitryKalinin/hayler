@@ -9,6 +9,27 @@
     color: v.$white;
     background-color: v.$darkGrey;
     padding: 4rem 13.125rem;
+    @include m.resTablet {
+        padding: 4rem 2rem;
+    }
+    @include m.resMobile {
+        padding: 2.5rem 1.25rem;
+    }
+    .header__burger {
+        display: none;
+        @include m.resMobile {
+            display: block;
+            margin-left: -1.25rem;
+        }
+    }
+
+    .lang-switcher {
+        @include m.resTablet {
+            .button {
+                font-size: 1rem;
+            }
+        }
+    }
     &__top {
         
     }
@@ -16,6 +37,10 @@
         margin-top: 3.125rem;
         font-size: 1rem;
         line-height: 1.5;
+        @include m.resMobile {
+            margin-top: 2rem;
+            font-size: 0.7rem;
+        }
     }
     &__email {
         display: block;
@@ -29,11 +54,22 @@
         display: flex;
         justify-content: space-between;
         padding-top: 0.5rem;
+        @include m.resMobile {
+            margin-top: 2rem;
+        }
         ul {
             height: 100%;
             display: flex;
             align-items: center;
             gap: 5.3125rem;
+            @include m.resTablet {
+                gap: 2rem;
+            }
+        }
+        nav {
+            @include m.resMobile {
+                display: none;
+            }
         }
     }
 
@@ -43,6 +79,10 @@
         svg {
             width: 1.5rem;
             height: 0.5rem;
+            @include m.resTablet {
+                width: 1.5rem;
+                height: 1rem;
+            }
         }
     }
 
@@ -50,11 +90,15 @@
         margin-top: 2.25rem;
         display: flex;
         justify-content: space-between;
-        
+        align-items: center;
     }
 
     &__author {
         font-size: 1rem;
         line-height: 1.5;
+        @include m.resMobile {
+            font-size: 0.7rem;
+            max-width: 12rem;
+        }
     }
 }

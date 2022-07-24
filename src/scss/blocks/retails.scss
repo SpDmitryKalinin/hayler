@@ -11,6 +11,10 @@
     padding: 12.5rem;
     padding-top: 0;
     margin-top: -1px;
+    @include m.resTablet {
+        min-height: auto;
+        padding: 1.5rem 1.25rem;
+    }
     &__title {
         max-width: 70rem;
         font-size: 4.0625rem;
@@ -20,6 +24,14 @@
         &--orange {
             color: v.$orange;
         }
+        @include m.resTablet {
+            font-size: 3rem;
+            max-width: 33rem;
+        }
+        @include m.resMobile {
+            font-size: 1.5625rem;
+            max-width: 15rem;
+        }
     }
 
     &__partners {
@@ -28,10 +40,21 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 12.5rem;
+        @include m.resTablet {
+            margin-top: 2rem;
+            margin-left: 0;
+            gap: 2rem 7rem;
+        }
+        @include m.resMobile {
+            gap: 0.5rem 1.625rem
+        }
     }
 
     &__partner {
         height: 6.25rem;
+        @include m.resMobile {
+            max-height: 4rem;
+        }
         img {
             height: 100%;
             object-fit: contain;

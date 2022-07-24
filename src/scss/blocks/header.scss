@@ -182,7 +182,7 @@
             .lang-switcher {
                 position: absolute;
                 left: 6.25rem;
-                top: 3rem;
+                top: 2.5rem;
                 .lang-switcher__button {
                     color: v.$black;
                     &:hover {
@@ -209,9 +209,6 @@
             height: 100%;
         }
         @include m.resTablet {
-            width: 15rem;
-        }
-        @include m.resMobile {
             width: 5.625rem;
         }
 

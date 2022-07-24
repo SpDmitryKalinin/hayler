@@ -4,15 +4,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 
 const about = document.querySelector('.about');
 const windowWidth = window.innerWidth;
-console.log(windowWidth)
-if(about && windowWidth > 1200) {
-    const windowHeight = window.innerHeight;
-    gsap.registerPlugin(ScrollTrigger);
-    
-    const titleAbout = about.querySelector('.about__title');
-    const aboutColumn = about.querySelector('.about__column');
-    const aboutTitleStroke = about.querySelector('.about__title--stroke');
+const windowHeight = window.innerHeight;
+const titleAbout = about.querySelector('.about__title');
+const aboutColumn = about.querySelector('.about__column');
+const aboutTitleStroke = about.querySelector('.about__title--stroke');
 
+gsap.registerPlugin(ScrollTrigger);
+if(about && windowWidth > 1200) {
     let t2 = gsap.timeline({
         scrollTrigger: {
             trigger: ".about[data-scroll-trigger]",
@@ -51,8 +49,6 @@ if(about && windowWidth > 1200) {
                     titleAbout.style.marginLeft = `-16.1em`;
                     aboutColumn.style.top = "4rem";
                 }
-
-                
             } 
         } 
     });
@@ -73,4 +69,24 @@ if(about && windowWidth > 1200) {
         var x = (aX * Math.pow(t, 3)) + (bX * Math.pow(t, 2)) + (cX * t) + p0;
         return x;
     }
+}
+else if(about && windowWidth < 1200) {
+    let diff = titleAbout.scrollWidth / about.clientWidth + 0.5;
+    console.log(diff);
+    let t2 = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".about[data-scroll-trigger]",
+            scrub: 0.5,
+            anticipatePin: 1,
+            onEnter: () => {
+                console.log('onEnter')
+            },
+            //markers: true,
+            start: "top bottom",
+            end: `top top`,
+            onUpdate: (self) => {
+                titleAbout.style.left = `calc(${100 - self.progress * 100 * diff}% - 1.6em)`
+            } 
+        } 
+    });
 }

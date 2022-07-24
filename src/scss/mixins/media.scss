@@ -1,17 +1,17 @@
 @mixin resDesktop {
-    @media (min-device-width: 1200px) {
+    @media (min-width: 1200px) {
         @content;
     }
 }
 
 @mixin resTablet {
-    @media (max-device-width: 1199px){
+    @media (max-width: 1199px){
         @content;
     }
 }
 
 @mixin resMobile {
-    @media (max-device-width: 767px){
+    @media (max-width: 767px){
         @content;
     }
 }

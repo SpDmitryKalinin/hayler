@@ -47,6 +47,9 @@ body {
 html {
     font-size: 0.8333333333333333vw;
     scroll-behavior: smooth;
+    @include m.resTablet {
+        font-size: 2vw;
+    }
     @include m.resMobile {
         font-size: 16px;
     }
