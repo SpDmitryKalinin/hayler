@@ -29,6 +29,9 @@
 @mixin paragraphDefaultMedium {
     @include paragraphDefault;
     font-weight: 500;
+    @include m.resTablet {
+        font-size: 1rem;
+    }
     @include m.resMobile {
         font-size: 0.9375rem;
         line-height: 1.421;

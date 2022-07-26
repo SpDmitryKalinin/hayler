@@ -6,7 +6,13 @@
 
 .brands {
     @include c.mainContainer();
-
+    margin-bottom: 18.75rem;
+    @include m.resTablet {
+        margin-bottom: 8rem;
+    }
+    @include m.resMobile {
+        margin-bottom: 5rem;
+    }
     &__title {
         margin-top: 17.75rem;
         margin-bottom: 3.75rem;
@@ -14,7 +20,7 @@
         @include m.resTablet {
             
         }
-        @include m.resMobile {
+        @include m.resTablet {
             margin-top: 8.5625rem;
             margin-bottom: 2.1875rem;
             width: 100%;
@@ -25,7 +31,7 @@
         @include f.paragraphDefaultMedium();
         width: 54.125rem;
         margin-bottom: 7.5rem;
-        @include m.resMobile {
+        @include m.resTablet {
             width: 100%;
             margin-bottom: 5.125rem;
         }
@@ -54,7 +60,7 @@
         right: 21.0625rem;
         top: 16.0625rem;
         z-index: -1;
-        @include m.resMobile {
+        @include m.resTablet {
             width: 10.1875rem;
             height: 10.1875rem;
             right: 3%;
@@ -83,22 +89,60 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 3.75rem;
         position: relative;
-        @include m.resMobile {
+        @include m.resTablet {
             grid-template-columns: repeat(1, 1fr);
             gap: 1.0625rem;
         }
     }
 
     &__grid-item {
+        position: relative;
+        overflow: hidden;
+        &::before {
+            content: "";
+            display: block;
+            padding-bottom: 55.55555555555556%;
+            
+        }
+        position: relative;
         &:first-child {
             grid-column: 1/3;
+            &::before {
+                content: "";
+                display: block;
+                padding-bottom: 26.66666666666667%;
+            }
         }
-       position: relative;
-       @include m.resMobile {
-        &:first-child {
-            grid-column: 1;
+        &:hover {
+            .brands__logos {
+                transform: translateY(0);
+            }
+            .brands__item-paragraph {
+                opacity: 1;
+            }
+            .brands__grid-image {
+                scale: 1.2;
+            }
         }
+        @include m.resTablet {
+            &:first-child {
+                grid-column: 1;
+                &::before {
+                    content: "";
+                    display: block;
+                    padding-bottom: 55.55555555555556%;
+                    
+                }
+            }
         }
+    }
+    &__item-content {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        display: flex;
     }
 
     &__grid-image {
@@ -107,20 +151,34 @@
         position: absolute;
         z-index: -1;
         object-fit: cover;
+        transition: 0.4s ease-in-out;
     }
 
     &__item-box {
-        padding: 9.625rem 0 11.1875rem 0;
+        margin: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
-        @include m.resMobile {
-            padding: 5.5rem 0 5.5rem 0;
+    }
+
+    &__logos {
+        transform: translateY(50%);
+        transition: 0.4s ease-in-out;
+        display: flex;
+        @include m.resTablet {
+            transform: translateY(0);
         }
     }
 
     &__grid-name {
+        display: block;
         width: 14rem;
+        padding: 0.5rem 0;
+        & + & {
+            margin-left: 2rem;
+            padding-left: 2rem;
+            border-left: 2px solid v.$white;
+        }
         @include m.resMobile {
             width: 6.375rem;
         }
@@ -132,9 +190,17 @@
         margin-top: 1.5625rem;
         padding: 0 7rem 0 7rem;
         text-align: center;
+        opacity: 0;
+        transition: 0.4s ease-in-out;
+        @include m.resTablet {
+            padding: 0 2rem;
+            opacity: 1;
+        }
         @include m.resMobile {
             margin-top: 0.8125rem;
             padding: 0 2.7rem 0 2.7rem;
+            font-size: 0.8rem;
+            line-height: 1;
         }
     }
 

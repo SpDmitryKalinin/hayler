@@ -6,7 +6,36 @@ const keyNumber = document.querySelector('.key-numbers');
 if(keyNumber) {
     const numbers = keyNumber.querySelectorAll('[data-key-number]');
     const duration = keyNumber.dataset.duration;
+    const windowWidth = window.innerWidth;
     gsap.registerPlugin(ScrollTrigger);
+    if(windowWidth >= 1200) {
+        let t22 = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".key-numbers[data-scroll-trigger]",
+                scrub: 0.5,
+                anticipatePin: 1,
+                onEnter: () => {
+                    
+                },
+                //markers: true,
+                start: `top bottom`,
+                end: `bottom bottom`,
+                onUpdate: (self) => {
+                    if(self.progress <= 0.5) {
+                        let interValue = interpolation(self.progress, 0, 0.5, 0, 1);
+                        let red = Math.round(255 - (interValue) * 220);
+                        let green = Math.round(255 -  (interValue) * 215);
+                        let blue = Math.round(255 - (interValue) * 213);
+                        keyNumber.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                    }
+                    if(self.progress > 0.5) {
+                        keyNumber.style.backgroundColor = 'rgb(35, 40, 42)';
+                    }
+                }
+            } 
+        })
+    }
+    
     let t2 = gsap.timeline({
         scrollTrigger: {
             trigger: ".key-numbers[data-scroll-trigger]",
@@ -63,4 +92,9 @@ function increment(numberElement, step, max, delay) {
             }
         }
     }, delay);
+}
+
+function interpolation (value, min, max, newMin, newMax){
+    let newValue = ( (value-min) / (max-min) ) * (newMax-newMin) + newMin;
+    return newValue;
 }
