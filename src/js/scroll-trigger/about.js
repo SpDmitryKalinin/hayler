@@ -5,18 +5,19 @@ import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 const about = document.querySelector('.about');
 const windowWidth = window.innerWidth;
 const windowHeight = window.innerHeight;
-const titleAbout = about.querySelector('.about__title');
-const aboutColumn = about.querySelector('.about__column');
-const aboutTitleStroke = about.querySelector('.about__title--stroke');
+
 
 gsap.registerPlugin(ScrollTrigger);
-if(about && windowWidth > 1200) {
+if(about && windowWidth >= 1200) {
+    const titleAbout = about.querySelector('.about__title');
+    const aboutColumn = about.querySelector('.about__column');
+    const aboutTitleStroke = about.querySelector('.about__title--stroke');
     let t2 = gsap.timeline({
         scrollTrigger: {
             trigger: ".about[data-scroll-trigger]",
             pin: true,
             pinType: 'fixed',
-            scrub: 0.5,
+            scrub: 1,
             anticipatePin: 1,
             onEnter: () => {
                 console.log('onEnter')
@@ -25,12 +26,24 @@ if(about && windowWidth > 1200) {
             start: "top top",
             end: `+=${windowHeight * 1.5}`,
             onUpdate: (self) => {
-                const interValue = interpolation(self.progress, 0, 0.8, 0, 1);
-                if(interValue < 1) {
-                    titleAbout.style.marginLeft = `${10 - (26.1 * (interValue))}em`;
-                    // console.log(bez(interValue), interValue)
-                    aboutColumn.style.top = `${(150 - (bez(interValue) * 146)) }rem`;
+                const interValue = interpolation(self.progress, 0, 0.9, 0, 1);
+                // if(interValue < 1) {
+                //     titleAbout.style.marginLeft = `${10 - (26.1 * (interValue))}em`;
+                //     // console.log(bez(interValue), interValue)
+                //     
+                // }
+                if(interValue <= 0.6) {
+                    let interpolationStagefirst = interpolation(interValue, 0, 0.6, 0, 1);
+                    titleAbout.style.marginLeft = `${10 - (23.2* (interpolationStagefirst))}em`;
+                    aboutColumn.style.top = `${(150 - interpolationStagefirst * 110)}rem`;
                 }
+
+                if(interValue > 0.6) {
+                    let interpolationStagefirst = interpolation(interValue, 0.6, 1, 0, 1);
+                    titleAbout.style.marginLeft = `${-13.2 - (2.9 * (interpolationStagefirst))}em`;
+                    aboutColumn.style.top = `${(40 - interpolationStagefirst * 36)}rem`;
+                }
+                
                 if(interValue < 0.5) {
                     about.style.backgroundColor = 'rgb(35, 40, 42)';
                     aboutTitleStroke.style.color = 'rgb(35, 40, 42)'
@@ -43,7 +56,7 @@ if(about && windowWidth > 1200) {
                     about.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
                     aboutTitleStroke.style.color = `rgb(${red}, ${green}, ${blue})`;
                 }
-                if(self.progress >= 0.8) {
+                if(interValue > 1) {
                     about.style.backgroundColor = 'rgb(255, 255, 255)';
                     aboutTitleStroke.style.color = 'rgb(255, 255, 255)';
                     titleAbout.style.marginLeft = `-16.1em`;
@@ -71,6 +84,9 @@ if(about && windowWidth > 1200) {
     }
 }
 else if(about && windowWidth < 1200) {
+    const titleAbout = about.querySelector('.about__title');
+    const aboutColumn = about.querySelector('.about__column');
+    const aboutTitleStroke = about.querySelector('.about__title--stroke');
     let diff = titleAbout.scrollWidth / about.clientWidth + 0.5;
     console.log(diff);
     let t2 = gsap.timeline({

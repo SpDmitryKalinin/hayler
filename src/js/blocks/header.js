@@ -56,24 +56,38 @@ if(header) {
     window.addEventListener('scroll', () => toggleHeader())
 
     function toggleHeader() {
-        const sectionsPosition = savePositionsSections(sections)
+
+        const sectionsPosition = savePositionsSections(sections);
         let windowPosition = {
             top: window.pageYOffset,
             left: window.pageXOffset,
             right: window.pageXOffset + document.documentElement.clientWidth,
             bottom: window.pageYOffset + document.documentElement.clientHeight
         };   
-        let tempSection = Array.from(sectionsPosition).reverse().find(sectionPosition => sectionPosition.top <= windowPosition.top + 20);
-        if(currentSection !== tempSection.section) {
-            currentSection = tempSection.section;
+        let tempSection = Array.from(sectionsPosition).reverse().find(sectionPosition => sectionPosition.top <= windowPosition.top + 20) || null;
+        if(tempSection === null) {
+            currentSection = null;
             const windowHeight = window.innerHeight;
             if(windowHeight >=1200) {
+                console.log('???')
+                changeColorHeader('black')
+            }
+            else {
+                changeColorHeader('black')
+            }
+        }
+
+        else if(currentSection !== tempSection.section) {
+            currentSection = tempSection.section;
+            const windowHeight = window.innerHeight;
+            console.log(currentSection, currentSection.dataset.header);
+            if(windowHeight >=1200) {
+                console.log(currentSection, currentSection.dataset.header);
                 changeColorHeader(currentSection.dataset.header)
             }
             else {
                 changeColorHeader(currentSection.dataset.mheader)
             }
-            
         }
         else {
             return
@@ -81,7 +95,7 @@ if(header) {
     }
 
     function changeColorHeader(color) {
-        
+        console.log(color)
         if(color === 'white') {
             header.classList.remove('header--black');
         }

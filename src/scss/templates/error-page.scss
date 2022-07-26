@@ -1,0 +1,104 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+@use 'mixins/containers.scss' as c;
+@use 'mixins/buttons.scss' as b;
+
+
+.error-page {
+    width: 100vw;
+    height: 100vh;
+    padding: 18.75rem;
+    display: flex;
+    @include m.resTablet {
+        padding: 2rem 0;
+        height: auto;
+    }
+    &__decoration {
+        position: relative;
+        width: 33rem;
+        @include m.resTablet {
+            display: none;
+        }
+    }
+    &__content {
+        margin-left: 7.5rem;
+        @include m.resTablet {
+            margin: 0 auto;
+            text-align: center;
+        }
+    }
+    &__title {
+        font-size: 9.375rem;
+        line-height: 1;
+        font-weight: 600;
+        @include m.resMobile {
+            font-size: 5rem;
+        }
+    }
+
+    &__subtitle {
+        font-size: 2.5rem;
+        line-height: 1.333333333333333;
+        @include m.resMobile {
+            font-size: 2rem;
+        }
+    }
+
+    &__link {
+        display: block;
+        @include b.buttonDefault();
+        text-align: center;
+        margin-top: 5rem;
+        @include m.resMobile {
+            margin: 5rem auto 0;
+        }
+    }
+
+    &__decoration-filter {
+        background-color: v.$orange;
+        opacity: 0.5;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    &__decoration-item {
+        position: absolute;
+        border-radius: 100%;
+        overflow: hidden;
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        &:nth-child(1) {
+            width: 17.125rem;
+            height: 17.125rem;
+            right: 0;
+            top: 0;
+            transform: translateY(-50%);
+        }
+
+        &:nth-child(2) {
+            width: 12.5rem;
+            height: 12.5rem;
+            top: 5.5rem;
+        }
+
+        &:nth-child(3) {
+            width: 8.3125rem;
+            height: 8.3125rem;
+            top: 15rem;
+            left: 50%;
+            transform: translateY(50%);
+        }
+    }
+}

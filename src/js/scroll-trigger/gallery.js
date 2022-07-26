@@ -3,7 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 
 const gallery = document.querySelector('.gallery');
 const windowWidth = window.innerWidth;
-if(gallery && windowWidth > 1200) {
+if(gallery && windowWidth >= 1200) {
     const windowHeight = window.innerHeight;
     const galleryWrapper = gallery.querySelector('.gallery__wrapper');
     const galleryPaddingTop =parseInt(window.getComputedStyle(gallery,null).getPropertyValue("padding-top"));
