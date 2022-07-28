@@ -17,7 +17,10 @@
         min-height: auto;
         flex-direction: column;
         align-items: flex-start;
-        padding: 3rem 1.25rem;
+        padding: v.$tabletP;
+    }
+    @include m.resMobile {
+        padding: v.$mobileP;
     }
     &__title {
         @include t.mainTitle;
@@ -27,10 +30,14 @@
         display: flex;
         flex-direction: column;
         @include m.resTablet {
-            font-size: 1.5625rem;
+            @include t.mainTabletTitle;
             font-weight: 500;
             flex-direction: row;
         }
+        @include m.resMobile {
+            @include t.mainMobileTitle;
+        }
+
     }
 
     &__layout {

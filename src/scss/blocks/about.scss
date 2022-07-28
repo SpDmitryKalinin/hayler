@@ -17,12 +17,12 @@
     height: max(400px, 100vh);
     @include m.resTablet {
         flex-direction: column;
-        padding: 1.25rem;
+        padding: v.$tabletP;
         height: auto;
         overflow: hidden;
     }
     @include m.resMobile {
-        padding: 4.375rem 1.25rem;
+        padding: v.$mobileP;
     }
     &__content {
         width: 100%;
@@ -91,14 +91,14 @@
             left: 0;
             top: 0;
             min-width: auto;
-            max-width: 75%;
+            max-width: unset;
             align-self: none;
             align-self: flex-start;
             margin-top: 6.25rem;
             color: v.$white;
         }
         @include m.resMobile {
-            max-width: 17.1875rem;
+            max-width: unset;
         }
 
     }
@@ -117,10 +117,10 @@
         line-height: 1.2;
         margin-top: 1.3125rem;
         @include m.resTablet {
-            font-size: 1.5625rem;
+            @include t.mainTabletTitle;
         }
-        @include m.resTablet {
-
+        @include m.resMobile {
+            @include t.mainMobileTitle;
         }
         span {
             color: v.$orange;

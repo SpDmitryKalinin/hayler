@@ -12,7 +12,11 @@
     overflow: hidden;
     @include m.resTablet {
         min-height: auto;
-        padding: 3.5625rem 1.25rem;
+        padding: v.$tabletP;
+    }
+
+    @include m.resMobile {
+        padding: v.$mobileP;
     }
     &-anchor {
         width: 1px; 

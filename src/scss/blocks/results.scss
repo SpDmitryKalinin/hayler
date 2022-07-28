@@ -10,7 +10,10 @@
     padding: 12.5rem 13.125rem;
     @include m.resTablet {
         min-height: auto;
-        padding: 3.8125rem 1.25rem;
+        padding: v.$tabletP;
+    }
+    @include m.resMobile {
+        padding: v.$mobileP;
     }
     &__background {
         position: absolute;
@@ -40,6 +43,12 @@
         max-width: 64.375rem;
         line-height: 1.1;
         color: v.$white;
+        @include m.resTablet {
+            @include t.mainTabletTitle;
+        }
+        @include m.resMobile {
+            @include t.mainMobileTitle;
+        }
     }
 
     &__companies {
@@ -50,6 +59,9 @@
         grid-template-columns: repeat(3, minmax(33%, 1fr));
         gap: 2rem 0;
         @include m.resTablet {
+            margin-top: 3.5rem;
+        }
+        @include m.resMobile {
             display: block;
             margin-top: 4.125rem;
         }
@@ -58,6 +70,11 @@
         position: relative;
         padding: 2rem 0;
         @include m.resTablet {
+            padding: 2rem 0.5rem;
+        }
+        
+        @include m.resMobile {
+            padding: 2rem 0;
             & + & {
                 border-top: 1px solid v.$white;
             }
@@ -75,7 +92,7 @@
         }
         &:nth-child(3n - 1) {
             text-align: center;
-            @include m.resTablet {
+            @include m.resMobile {
                 text-align: left;
             }
             .results__companies-item-subtitle {
@@ -89,7 +106,7 @@
                 width: 3px;
                 height: 100%;
                 background-color: v.$white;
-                @include m.resTablet {
+                @include m.resMobile {
                     display: none;
                 }
             }
@@ -109,7 +126,22 @@
         }
 
         @include m.resTablet {
+            height: 4.5rem;
+            max-width: auto;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+        
+
+        @include m.resMobile {
             margin: 0;
+            max-width: 12.5rem;
+            img {
+                width: 100%;
+            }
         }
         
     }
@@ -120,8 +152,12 @@
         color: v.$white;
         max-width: 23.75rem;
         @include m.resTablet {
+            margin-top: 1rem;
+        }
+        @include m.resMobile {
             text-align: left;
             margin-top: 1.375rem;
+            font-size: 1rem;
         }
     }
     &__companies-item-wrap {
