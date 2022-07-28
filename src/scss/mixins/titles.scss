@@ -7,6 +7,18 @@
     }
 }
 
+@mixin mainTabletTitle {
+    font-size: 3rem;
+    line-height: 1.08;
+    font-weight: 500;
+}
+
+@mixin mainMobileTitle {
+    font-size: 1.8rem;
+    line-height: 1.08;
+    font-weight: 500;
+}
+
 @mixin h1 {
     font-size: 9.375rem;
     font-style: normal;

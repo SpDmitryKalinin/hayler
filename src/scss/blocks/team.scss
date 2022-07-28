@@ -12,7 +12,10 @@
     overflow: hidden;
     @include m.resTablet {
         min-height: auto;
-        padding: 3.875rem 1.25rem
+        padding: v.$tabletP;
+    }
+    @include m.resMobile {
+        padding: v.$mobileP;
     }
     &__title {
         @include t.mainTitle;
@@ -49,6 +52,7 @@
             max-width: auto;
             position: static;
             margin-top: 6.25rem;
+            max-width: unset;
         }
     }
 
@@ -58,11 +62,12 @@
         line-height: 1.166666666666667;
         font-weight: 500;
         @include m.resTablet {
-            font-size: 1.5625rem;
+            @include t.mainTabletTitle;
             color: v.$white;
+            max-width: unset;
         }
         @include m.resMobile {
-            font-size: 1.5625rem;
+            @include t.mainMobileTitle;
         }
         &--orange {
             color: v.$orange;

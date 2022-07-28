@@ -5,19 +5,20 @@
 @use 'mixins/containers.scss' as c;
 
 .key-numbers {
-    padding: 5rem 0;
     display: flex;
     flex-direction: column;
     background-color: v.$white;
+    @include m.resDesktop {
+        height: max(400px, 100vh);
+    }
     @include m.resTablet {
         background-color: v.$darkGrey;
-        padding: 6.25rem 0;
-        gap: 5vw;
-        padding: 6.25rem 5.56vw 6.25rem;
+        gap: 2rem;
+        padding: v.$tabletP;
     }
 
     @include m.resMobile {
-        padding-top: 3.5rem;
+        padding: v.$mobileP;
     }
 
     &__header {
@@ -50,6 +51,9 @@
         flex-direction: column;
         color: v.$white;
         @include m.resTablet {
+            margin-bottom: 2rem;
+        }
+        @include m.resMobile {
             margin-bottom: 10vw;
         }
     }
@@ -59,12 +63,15 @@
         line-height: 1;
         font-weight: 800;
         @include m.resTablet {
-            font-size: 17vw;
+            font-size: 6rem;
+        }
+        @include m.resMobile {
+            font-size: 3.8125rem;
         }
     }
     &__countries-number {
         @include m.resTablet {
-            font-size: 19vw;
+            font-size: 5rem;
         }
     }
     &__clients-subtitle, &__brands-subtitle, &__countries-subtitle, &__rating-subtitle {
@@ -72,7 +79,10 @@
         @include f.bigText;
         font-weight: 800;
         @include m.resTablet {
-            font-size: 6vw;
+            font-size: 2rem;
+        }
+        @include m.resMobile {
+            font-size: 1.5rem;
         }
     }
 
@@ -94,7 +104,7 @@
     &__countries {
         color: v.$orange;
         @include m.resTablet {
-            margin-bottom: 10vw;
+            margin-bottom: 2rem;
         }
     }
 
@@ -103,7 +113,7 @@
         min-width: 8.125rem;
         @include m.resTablet {
             min-width: auto;
-            margin-right: 3vw;
+            margin-right: 1rem;
         }
     }
 
@@ -118,15 +128,22 @@
         width: 10rem;
         height: 10rem;
         @include m.resTablet {
-            font-size: 7.5vw;
-            width: 17vw;
-            height: 17vw;
+            font-size: 3rem;
+            width: 8rem;
+            height: 8rem;
+        }
+        @include m.resMobile {
+            width: 6rem;
+            height: 6rem;
         }
     }
 
     &__rating-number {
         @include m.resTablet {
-            font-size: 9.5vw;
+            font-size: 5rem;
+        }
+        @include m.resMobile {
+            font-size: 3rem;
         }
     }
 
@@ -140,11 +157,17 @@
         color: v.$darkGrey;
         margin-right: 2rem;
         @include m.resTablet {
-            width: 40vw;
-            height: 40vw;
-            min-width: 40vw;
-            min-height: 40vw;
-            margin-right: 5vw;
+            width: 15rem;
+            height: 15rem;
+            min-width: 15rem;
+            min-height: 15rem;
+            margin-right: 1rem;
+        }
+        @include m.resMobile {
+            width: 8rem;
+            height: 8rem;
+            min-width: 8rem;
+            min-height: 8rem;
         }
     }
     

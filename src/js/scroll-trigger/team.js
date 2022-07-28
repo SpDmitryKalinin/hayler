@@ -55,6 +55,12 @@ blocksTeam.forEach(blockTeam => {
                         blockTeamContent.style.transform = `translateY(${interProgressOther * -50}%)`;
                         changeBackground(blockTeam, interProgressOther);
                     }
+                    if(self.progress >=0.9) {
+                        blockTeamVideo.style.transform = `translate(0%, -50%)`;
+                        blockTeamVideo.style.width = `20rem`;
+                        blockTeamContent.style.top = `50%`;
+                        blockTeamContent.style.transform = `translateY(-50%)`;
+                    }
     
                 } 
             } 

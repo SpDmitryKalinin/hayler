@@ -41,7 +41,7 @@ if(gallery && windowWidth >= 1200) {
             },
             //markers: true,
             start: `top -=${galleryPaddingTop}`,
-            end: `+=${windowHeight * 2}`,
+            end: `+=${windowHeight * 1.5}`,
             onUpdate: (self) => {
                 galleryWrapper.style.transform = `translateY(${122 - self.progress * 120}%) scale(${3.5 - self.progress * 2.5}) `; 
                 

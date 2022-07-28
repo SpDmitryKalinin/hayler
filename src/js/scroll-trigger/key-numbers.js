@@ -2,8 +2,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 
 const keyNumber = document.querySelector('.key-numbers');
-
+const about = document.querySelector('.about');
 if(keyNumber) {
+    const aboutColumn = about.querySelector('.about__column');
     const numbers = keyNumber.querySelectorAll('[data-key-number]');
     const duration = keyNumber.dataset.duration;
     const windowWidth = window.innerWidth;
@@ -26,9 +27,15 @@ if(keyNumber) {
                         let red = Math.round(255 - (interValue) * 220);
                         let green = Math.round(255 -  (interValue) * 215);
                         let blue = Math.round(255 - (interValue) * 213);
+                        
                         keyNumber.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                        let redAbout = Math.round(255 - (interValue) * 220);
+                        let greenAbout = Math.round(255 -  (interValue) * 215);
+                        let blueAbout = Math.round(255 - (interValue) * 213);
+                        about.style.backgroundColor = `rgb(${redAbout}, ${greenAbout}, ${blueAbout})`;
                     }
                     if(self.progress > 0.5) {
+                        about.style.backgroundColor = 'rgb(35, 40, 42)';
                         keyNumber.style.backgroundColor = 'rgb(35, 40, 42)';
                     }
                 }

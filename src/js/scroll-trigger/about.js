@@ -88,7 +88,6 @@ else if(about && windowWidth < 1200) {
     const aboutColumn = about.querySelector('.about__column');
     const aboutTitleStroke = about.querySelector('.about__title--stroke');
     let diff = titleAbout.scrollWidth / about.clientWidth + 0.5;
-    console.log(diff);
     let t2 = gsap.timeline({
         scrollTrigger: {
             trigger: ".about[data-scroll-trigger]",

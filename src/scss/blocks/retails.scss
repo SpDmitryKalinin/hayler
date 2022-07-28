@@ -13,7 +13,10 @@
     margin-top: -1px;
     @include m.resTablet {
         min-height: auto;
-        padding: 1.5rem 1.25rem;
+        padding: v.$tabletP;
+    }
+    @include m.resMobile {
+        padding: v.$mobileP;
     }
     &__title {
         max-width: 70rem;
@@ -26,11 +29,10 @@
         }
         @include m.resTablet {
             font-size: 3rem;
-            max-width: 33rem;
+            @include t.mainTabletTitle;
         }
         @include m.resMobile {
-            font-size: 1.5625rem;
-            max-width: 15rem;
+            @include t.mainMobileTitle;
         }
     }
 
