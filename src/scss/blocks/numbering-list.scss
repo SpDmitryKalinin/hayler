@@ -1,0 +1,65 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+@use 'mixins/containers.scss' as c;
+@use 'mixins/buttons.scss' as b;
+
+.numbering-list {
+    @include c.mainContainer();
+
+    &__container {
+       
+    }
+
+    &__title {
+        @include t.h2(); 
+        color: v.$orange;
+        line-height: 1.4;
+        margin-bottom: 7.5rem;
+        width: 100%; 
+        @include m.resMobile {
+            margin-bottom: 2.4375rem;
+        }
+    }
+
+    &__list-box {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem 4.8125rem;
+        counter-reset: myCounter;
+        @include m.resMobile {
+            grid-template-columns: 1fr;
+            gap: 2.1875rem 0;
+        }
+    }
+
+    &__list-item {
+        @include f.bigText();
+        border-top: 2px solid v.$black;
+        list-style: none;
+        padding-top: 2.8125rem;
+        display: flex;
+        @include m.resMobile {
+            width: 100%;
+            border-top: 1px solid v.$black;
+            @include f.paragraphDefault();
+            line-height: 1.2;
+            padding-top: 1.125rem;
+        }
+        &::before {
+            counter-increment: myCounter;
+            content:counter(myCounter);
+            display: block;
+            @include f.paragraphDefaultBold();
+            line-height: 1.6;
+            font-size: 1.5625rem;
+            margin-right: 2.375rem;
+            @include m.resMobile {
+                font-size: 1.25rem;
+                line-height: 1;
+                margin-right: 0.4375rem;
+            }
+        }
+    }
+}
