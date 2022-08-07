@@ -28,6 +28,10 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 3rem 4.8125rem;
         counter-reset: myCounter;
+        @include m.resTablet {
+            grid-template-columns: 1fr;
+            gap: 2.1875rem 0;
+        }  
         @include m.resMobile {
             grid-template-columns: 1fr;
             gap: 2.1875rem 0;
