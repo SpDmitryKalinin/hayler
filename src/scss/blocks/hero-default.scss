@@ -14,18 +14,17 @@
 
     &__image-box {
         position: absolute;
-        left: 9rem;
+        right: 0;
         z-index: -1;
         height: 100%;
-        width: 85.8125rem;
-
+        width: 85.75rem;
         @include m.resTablet {
             left: 5rem;
+            width: auto
         }
 
         @include m.resMobile {
             left: 2.5rem;
-            width: 17.8125rem;
         }
     }
 
