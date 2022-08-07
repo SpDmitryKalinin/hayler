@@ -23,6 +23,10 @@
 @import 'blocks/footer.scss';
 @import 'blocks/title-w-paragraph.scss';
 @import 'blocks/benefits.scss';
+@import 'blocks/numbering-list.scss';
+@import 'blocks/background-title.scss';
+@import 'blocks/about-slider.scss';
+@import 'blocks/hero-default.scss';
 
 //template
 @import 'templates/error-page.scss';
@@ -32,6 +36,8 @@
 @import 'ui/title.scss';
 //components
 @import 'components/lang-switcher.scss';
+
+@import 'plugins.scss';
 
 
 * {
