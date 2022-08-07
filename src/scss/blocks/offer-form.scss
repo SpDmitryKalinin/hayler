@@ -44,7 +44,7 @@
     }
 
     &__form-box {
-        width: 46.25rem;
+        width: 100%;
         @include m.resMobile {
             width: 100%;
         }
