@@ -1,0 +1,261 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+@use 'mixins/containers.scss' as c;
+@use 'mixins/buttons.scss' as b;
+
+
+.about-slider {
+    width: 100%;
+    height: 40rem;
+    margin-top: 5rem;
+    @include m.resTablet {
+        height: auto;
+        &.swiper {
+            overflow: visible;
+        }
+        .swiper-wrapper  {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    &__wrap {
+        padding-bottom: 3.75rem;
+        position: relative;
+    }
+    &__controls {
+        position: absolute;
+        right: 12.5rem;
+        bottom: 0;
+        display: flex;
+        gap: 1.25rem;
+        z-index: 2;
+        transform: translateY(-50%);
+        .swiper-button-prev, .swiper-button-next {
+            height: 100%;
+            width: 3rem;
+            height: 2rem;
+            position: static;
+            margin: 0;
+            &:hover {
+                svg {
+                    path {
+                        stroke: v.$orange;
+                    }
+                }
+            }
+            &::after {
+                display: none;
+            }
+            svg {
+                height: 100%;
+                width: 100%;
+                path {
+                    transition: 0.3s ease-in-out;
+                }
+            }
+
+        }
+        .swiper-button-prev {
+            transform: rotate(180deg);
+        }
+        @include m.resTablet { 
+            display: none;
+        }
+    }
+    &__slide-hero {
+        height: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        @include c.mainContainer;
+        @include m.resTablet { 
+            height: 32.3125rem;
+            padding-top: 2.25rem;
+            align-items: flex-start;
+            margin-bottom: 5rem;
+        }
+    }
+    
+
+    &__moon {
+        width: 20.3125rem;
+        height: 20.3125rem;
+        
+        border-radius: 100%;
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translateX(-50%);
+        img {
+            position: relative;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        @include m.resTablet { 
+            width: 10.15625rem;
+            height: 10.15625rem;
+        }
+    }
+
+    &__moon-layout {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        background: rgba(255, 77, 0, 0.5);
+    }
+
+    &__slide-hero-background {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 85.75rem;
+        height: 100%;
+        z-index: -1;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @include m.resTablet { 
+            width: auto;
+            margin-left: 2rem;
+        }
+    }
+
+    &__slide {
+        @include c.mainContainer;
+        display: flex;
+        justify-content: space-between;
+        gap: 9rem;
+        height: 100%;
+        @include m.resTablet {
+            flex-direction: column;
+            gap: 0;
+        }
+        &--first {
+            .about-slider__slide-title {
+                @include t.h1;
+                font-weight: 500;
+                @include m.resTablet {
+                    font-size: 4.6875rem;
+                }
+            }
+            @include m.resTablet {
+                .about-slider__slide-left {
+                    padding-top: 0;
+                }
+                
+            }
+
+        }
+    }
+
+    &__slide-hero-title {
+        @include t.h1;
+        max-width: 50rem;
+        @include m.resTablet {
+            font-size: 5rem;
+            max-width: 25rem;
+            
+        }
+
+        @include m.resMobile {
+            font-size: 2.8125rem;
+            max-width: 15rem;
+        }
+    }
+
+    &__slide-left {
+        border-left: 1px solid v.$black;
+        padding-top: 0.5rem;
+        padding-left: 2rem;
+        position: relative;
+        @include m.resTablet {
+            margin-left: 5rem;
+            padding-bottom: 2rem;
+            padding-top: 5rem;
+        }
+    }
+
+    &__slide-title {
+        display: block;
+        margin-bottom: 2rem;
+        font-size: 3.125rem;
+        line-height: 1;
+        font-weight: 500;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__slide-description {
+        display: block;
+        position: relative;
+        @include f.paragraphDefault();
+        font-weight: 500;
+        & + & {
+            margin-top: 2.1875rem;
+        }
+        &--slim {
+            margin-top: 1.25rem;
+            font-weight: 300;
+        }
+        &--subtitle {
+            @include f.bigText;
+            font-weight: 500;
+            max-width: 27.5rem;
+            @include m.resTablet {
+                @include f.paragraphDefault;
+                font-weight: 500;
+            }
+        }
+        &::before {
+            content: "";
+            width: 1rem;
+            height: 1rem;
+            display: block;
+            border-radius: 100%;
+            position: absolute;
+            top: 0.4em;
+            left: -2rem;
+            transform: translateX(-50%);
+            background-color: v.$black;
+            z-index: -1;
+            @include m.resTablet {
+                width: 0.5rem;
+                height: 0.5rem;
+            }
+        }
+        
+    } 
+
+    &__slide-right {
+        width: 54.375rem;
+        min-width: 54.375rem;
+        height: 100%;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @include m.resTablet {
+            width: 100%;
+            min-width: auto;
+        }
+    }
+
+    &__orange {
+        color: v.$orange;
+    }
+}
+
