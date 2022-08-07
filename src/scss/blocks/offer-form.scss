@@ -7,6 +7,8 @@
 
 .offer-form {
     @include c.mainContainer();
+    margin-top: 18.75rem;
+    margin-bottom: 18.75rem;
 
     &__container {
         display: flex;
