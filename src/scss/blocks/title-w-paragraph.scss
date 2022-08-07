@@ -8,6 +8,9 @@
 .title-w-paragraph {
     @include c.mainContainer();
     margin-top: 18.75rem;
+    @include m.resTablet {
+        margin-top: 5rem;
+    }
     &__container {
         display: flex;
         gap: 8rem;

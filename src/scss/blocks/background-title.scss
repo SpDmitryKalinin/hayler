@@ -6,9 +6,12 @@
 @use 'mixins/buttons.scss' as b;
 
 .background-title {
+    margin-top: 18.75rem;
     @include c.mainContainer();
     overflow: hidden;
-
+    @include m.resTablet {
+        margin-top: 5rem;
+    }
     &__container {
         
         display: flex;

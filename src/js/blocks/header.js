@@ -77,8 +77,8 @@ if(header) {
 
         else if(currentSection !== tempSection.section) {
             currentSection = tempSection.section;
-            console.log(currentSection, currentSection.dataset.header);
             const windowWidth = window.innerWidth;
+            const color = currentSection.dataset.header || 'black';
             if(windowWidth >=1200) {
                 changeColorHeader(currentSection.dataset.header)
             }

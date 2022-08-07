@@ -7,9 +7,9 @@
 
 .numbering-list {
     @include c.mainContainer();
-
-    &__container {
-       
+    margin-top: 18.75rem;
+    @include m.resTablet { 
+        margin-top: 5rem;
     }
 
     &__title {
@@ -53,7 +53,7 @@
         }
         &::before {
             counter-increment: myCounter;
-            content:counter(myCounter);
+            content:"0" counter(myCounter);
             display: block;
             @include f.paragraphDefaultBold();
             line-height: 1.6;
