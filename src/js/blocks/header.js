@@ -56,7 +56,6 @@ if(header) {
     window.addEventListener('scroll', () => toggleHeader())
 
     function toggleHeader() {
-
         const sectionsPosition = savePositionsSections(sections);
         let windowPosition = {
             top: window.pageYOffset,
@@ -67,9 +66,8 @@ if(header) {
         let tempSection = Array.from(sectionsPosition).reverse().find(sectionPosition => sectionPosition.top <= windowPosition.top + 20) || null;
         if(tempSection === null) {
             currentSection = null;
-            const windowHeight = window.innerHeight;
-            if(windowHeight >=1200) {
-                console.log('???')
+            const windowWidth = window.innerWidth;
+            if(windowWidth >=1200) {
                 changeColorHeader('black')
             }
             else {
@@ -79,23 +77,19 @@ if(header) {
 
         else if(currentSection !== tempSection.section) {
             currentSection = tempSection.section;
-            const windowHeight = window.innerHeight;
             console.log(currentSection, currentSection.dataset.header);
-            if(windowHeight >=1200) {
-                console.log(currentSection, currentSection.dataset.header);
+            const windowWidth = window.innerWidth;
+            if(windowWidth >=1200) {
                 changeColorHeader(currentSection.dataset.header)
             }
             else {
                 changeColorHeader(currentSection.dataset.mheader)
             }
         }
-        else {
-            return
-        }
     }
 
     function changeColorHeader(color) {
-        console.log(color)
+        console.log(color);
         if(color === 'white') {
             header.classList.remove('header--black');
         }

@@ -6,7 +6,7 @@
 
 .search-partners {
     @include c.mainContainer();
-
+    margin-top: 20rem;
     &__container {
         margin-top: 7.5rem;
         @include m.resMobile {
@@ -27,6 +27,7 @@
     &__box {
         display: flex;
         justify-content: space-between;
+        align-items: flex-start;
         & + & {
             margin-top: 7.5rem;
         }
@@ -86,6 +87,21 @@
         width: 46.375rem;
         @include m.resMobile {
             width: 100%;
+        }
+        position: relative;
+        &::before {
+            content: "";
+            display: block;
+            padding-top: 61%;
+        }
+        overflow: hidden;
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 
