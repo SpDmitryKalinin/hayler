@@ -1,0 +1,50 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+@use 'mixins/containers.scss' as c;
+@use 'mixins/buttons.scss' as b;
+
+.faq {
+    @include c.mainContainer();
+
+    &__title {
+        @include t.h2(); 
+        line-height: 1.4;
+        margin-bottom: 3.125rem;
+        @include m.resMobile {
+            line-height: 1.4;
+            margin-bottom: 1.875rem;
+        }
+    }
+
+    &__item-box {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.625rem 7.9375rem;
+        @include m.resTablet {
+            grid-template-columns: 1fr;
+            gap: 2.1875rem 0;
+        }  
+        @include m.resMobile {
+            grid-template-columns: 1fr;
+            gap: 1.875rem 0;
+        }
+    }
+
+    &__item {
+        border-bottom: 0.029375rem solid black;
+        padding-bottom: 1.5625rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include m.resMobile {
+            padding-bottom: 0.8125rem;
+        }
+    }
+
+    &__item-text {
+        @include f.paragraphDefault();
+        line-height: 2;
+    }
+}
