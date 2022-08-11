@@ -9,10 +9,16 @@
     @include c.mainContainer();
     margin-top: 18.75rem;
     margin-bottom: 18.75rem;
-
+    @include m.resTablet {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
     &__container {
         display: flex;
         justify-content: space-between;
+        @include m.resTablet {
+            flex-direction: column;
+        } 
         @include m.resMobile {
             flex-direction: column;
         }
@@ -20,6 +26,9 @@
 
     &__info-box {
         width: 100%;
+        @include m.resTablet {
+            margin-bottom: 3rem;
+        }
         @include m.resMobile {
             margin-bottom: 3.75rem;
         }
@@ -30,6 +39,9 @@
         line-height: 1.5;
         max-width: 31.375rem;
         margin-bottom: 3.75rem;
+        @include m.resTablet {
+            margin-bottom: 1.875rem;
+        } 
         @include m.resMobile {
             line-height: 1.333333333333333;
             max-width: 100%;
@@ -68,6 +80,9 @@
         &:focus {
             border-color: v.$orange;
         }
+        @include m.resTablet {
+            padding-left: 0;
+        } 
         @include m.resMobile {
             font-size: 0.625rem;
             line-height: 1.4;
@@ -78,6 +93,9 @@
 
     &__form-item::placeholder {
         padding-left: 0.5rem;
+        @include m.resTablet {
+            padding-left: 0;
+        } 
         @include m.resMobile {
             padding-left: 0;
         }
@@ -87,6 +105,7 @@
         margin-top: 0.9375rem;
         margin-left: auto;
         @include b.buttonDefault;
+        align-self: flex-end;
     }
 }
 

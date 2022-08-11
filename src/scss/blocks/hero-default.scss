@@ -7,9 +7,16 @@
 
 .hero-default {
     @include c.mainContainer();
-
+    
     &__container {
         position: relative;
+        height: 40rem;
+        display: flex;
+        align-items: center;
+        @include m.resTablet {
+            align-items: flex-start;
+        }
+        height: auto;
     }
 
     &__image-box {
@@ -47,6 +54,7 @@
 
         @include m.resTablet {
             padding: 3.5rem 0 5rem 0;
+            max-width: 28rem;
         }
 
         @include m.resMobile {
