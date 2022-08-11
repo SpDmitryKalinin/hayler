@@ -107,5 +107,10 @@
     &__button { 
         @include b.buttonDefault();
         padding: 1.5625rem 0 1.5625rem 0;
+        margin-bottom: 1.4rem;
+        @include m.resMobile {
+            width: 11rem;
+            padding: 0.9375rem 0 0.9375rem 0;
+        }
     }
 }
