@@ -13,6 +13,9 @@
             margin-top: 1.875rem;
         }
     }
+    @include m.resMobile {
+        margin-top: 1.875rem;
+    }
 
     &__title {
         @include t.h2();
@@ -23,7 +26,6 @@
         }  
         @include m.resMobile {
             max-width: 20rem;
-            margin-bottom: 3.125rem;
         }
     }
 
@@ -52,7 +54,7 @@
         @include m.resMobile {
             padding-top: 0;
             border-top: none;
-            width: 88%;
+            width: 100%;
         }
     }
 

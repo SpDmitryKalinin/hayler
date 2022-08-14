@@ -109,8 +109,9 @@
         padding: 1.5625rem 0 1.5625rem 0;
         margin-bottom: 1.4rem;
         @include m.resMobile {
-            width: 11rem;
-            padding: 0.9375rem 0 0.9375rem 0;
+            width: 11.25rem;
+            padding: 1rem 0 1rem 0;
+            border-radius: 0.625rem;
         }
     }
 }

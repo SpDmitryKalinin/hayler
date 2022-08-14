@@ -26,11 +26,14 @@
     &__wrap {
         padding-bottom: 3.75rem;
         position: relative;
+        @include m.resTablet {
+            padding-bottom: 0;
+        }
     }
     &__controls {
         position: absolute;
         right: 12.5rem;
-        top: 42rem;
+        top: 44rem;
         display: flex;
         gap: 1.25rem;
         z-index: 2;
@@ -133,6 +136,10 @@
         @include m.resTablet { 
             width: auto;
             margin-left: 2rem;
+            img {
+                object-position: right;
+            }
+            
         }
     }
 
@@ -259,6 +266,18 @@
 
     &__orange {
         color: v.$orange;
+    }
+    .about-slider__img--desktop {
+        @include m.resMobile {
+            display: none;
+        }
+    }
+
+    .about-slider__img--mobile {
+        display: none;
+        @include m.resMobile {
+            display: block;
+        }
     }
 }
 

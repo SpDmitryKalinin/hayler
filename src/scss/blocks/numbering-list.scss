@@ -18,7 +18,7 @@
         line-height: 1.4;
         margin-bottom: 7.5rem;
         width: 100%; 
-        @include m.resMobile {
+        @include m.resTablet {
             margin-bottom: 2.4375rem;
         }
     }
@@ -32,10 +32,6 @@
             grid-template-columns: 1fr;
             gap: 2.1875rem 0;
         }  
-        @include m.resMobile {
-            grid-template-columns: 1fr;
-            gap: 2.1875rem 0;
-        }
     }
 
     &__list-item {
@@ -59,10 +55,14 @@
             line-height: 1.6;
             font-size: 1.5625rem;
             margin-right: 2.375rem;
-            @include m.resMobile {
+            @include m.resTablet {
                 font-size: 1.25rem;
                 line-height: 1;
-                margin-right: 0.4375rem;
+                margin-right: 0.75rem;
+                margin-top: 0.25rem;
+            }
+            @include m.resMobile {
+                margin-top: 0.15rem;
             }
         }
     }

@@ -80,16 +80,15 @@ if(header) {
             const windowWidth = window.innerWidth;
             const color = currentSection.dataset.header || 'black';
             if(windowWidth >=1200) {
-                changeColorHeader(currentSection.dataset.header)
+                changeColorHeader(color)
             }
             else {
-                changeColorHeader(currentSection.dataset.mheader)
+                changeColorHeader(color)
             }
         }
     }
 
     function changeColorHeader(color) {
-        console.log(color);
         if(color === 'white') {
             header.classList.remove('header--black');
         }

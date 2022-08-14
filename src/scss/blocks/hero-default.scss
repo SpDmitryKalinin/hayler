@@ -7,7 +7,6 @@
 
 .hero-default {
     @include c.mainContainer();
-    
     &__container {
         position: relative;
         height: 40rem;
@@ -16,7 +15,6 @@
         @include m.resTablet {
             align-items: flex-start;
         }
-        height: auto;
     }
 
     &__image-box {
@@ -39,16 +37,23 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-
+        &--mobile {
+            display: none;
+        }
         @include m.resMobile {
             object-position: 74.5% 0;
+            &--mobile {
+                display: block
+            }
+            &--desktop {
+                display: none
+            }
         }
     }
 
     &__title {
         @include t.h1();
-        max-width: 63.125rem;
-        padding: 5.875rem 0 8.1875rem 0;
+        max-width: 53.125rem;
         margin: 0;
         z-index: 1;
 
@@ -59,7 +64,9 @@
 
         @include m.resMobile {
             padding: 5.1875rem 0 18.6875rem 0;
-            width: 100%;
+            max-width: 16rem;
         }
     }
+
+    
 }
