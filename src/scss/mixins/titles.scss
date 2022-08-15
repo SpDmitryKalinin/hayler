@@ -37,6 +37,10 @@
     font-style: normal;
     font-weight: 500;
     line-height: 1.272727272727273;
+    @include m.resTablet {
+        font-size: 1.875rem;
+        line-height: 1.2;
+    }
     @include m.resMobile {
         font-size: 1.5625rem;
         line-height: 1.2;

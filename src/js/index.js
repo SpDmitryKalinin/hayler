@@ -3,6 +3,8 @@ import './blocks/header.js';
 import './blocks/offer-form.js';
 import './blocks/footer.js';
 import './blocks/about-slider.js';
+import './blocks/slider-career.js'
+import './blocks/faq.js';
 
 //scroll-trigger
 import './scroll-trigger/about.js';

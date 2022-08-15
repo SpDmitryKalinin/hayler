@@ -1,0 +1,80 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+@use 'mixins/containers.scss' as c;
+@use 'mixins/buttons.scss' as b;
+
+.vacancy {
+    @include c.mainContainer();
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7.5rem;
+    @include m.resTablet {
+        flex-direction: column;
+    }
+}
+
+.vacancy__title-item {
+    max-width: 22.5rem;
+    @include m.resTablet {
+        width: 100%;
+    }
+}
+
+
+
+.vacancy__list {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(2, 26.25rem);
+    @include f.paragraphDefault;
+    gap: 3rem;
+    @include m.resTablet {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include m.resMobile {
+        grid-template-columns: 1fr;
+        gap: 1.875rem;
+        margin-top: 3.125rem;
+    }
+    
+}
+
+.vacancy__list-item {
+    border-bottom: 1px solid v.$black;
+    padding-bottom: 1.5625rem;
+}
+
+.vacancy__list-item-link {
+    width: 100%;
+    display: block;
+    position: relative;
+    padding-right: 1rem;
+    transition: 0.3s ease-in-out;
+    svg {
+        path {
+            transition: 0.3s ease-in-out;
+        }
+    }
+    &:hover {
+        color: v.$orange;
+        svg {
+            path {
+                stroke: v.$orange;
+            }
+        }
+    }
+    svg {
+        width: 0.625rem;
+        position: absolute;
+        right: 0;
+        top: 0.5rem;
+        @include m.resTablet {
+            top: 0.25rem;
+        }
+        @include m.resMobile {
+            top: 0;
+        }
+    }
+}

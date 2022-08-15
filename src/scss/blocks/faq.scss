@@ -1,0 +1,115 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+@use 'mixins/containers.scss' as c;
+@use 'mixins/buttons.scss' as b;
+
+.faq {
+
+    @include c.mainContainer();
+    margin-top: 7.5rem;
+    margin-bottom: 18.75rem;
+    @include m.resTablet {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
+    &__title {
+        @include t.h2(); 
+        line-height: 1.4;
+        margin-bottom: 3.125rem;
+        @include m.resTablet {
+            margin-bottom: 4rem;
+        }
+        @include m.resMobile {
+            line-height: 1.4;
+            margin-bottom: 1.875rem;
+        }
+    }
+
+    &__item-box {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.625rem 7.9375rem;
+        align-items: flex-start;
+        grid-auto-flow: row dense;
+        @include m.resTablet {
+            grid-template-columns: 1fr;
+            gap: 2.1875rem 0;
+        }  
+        @include m.resMobile {
+            grid-template-columns: 1fr;
+            gap: 1.875rem 0;
+        }
+    }
+
+    &__item {
+        border-bottom: 0.029375rem solid black;
+        padding-bottom: 1.5625rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__item-text {
+        @include f.paragraphDefault();
+        line-height: 2;
+        transition: 0.3s ease-in-out;
+    }
+}
+
+.faq__item-header {
+    position: relative;
+    width: 100%;
+    padding-right: 1rem;
+    cursor: pointer;
+    &:hover {
+        .faq__item-text {
+            color: v.$orange;
+        }
+        svg {
+            path {
+                stroke:  v.$orange;
+            }
+        }
+    }
+    svg {
+        width: 0.625rem;
+        position: absolute;
+        right: 0;
+        top: 0.75rem;
+        transition: 0.3s ease-in-out;
+        path {
+            transition: 0.3s ease-in-out;
+        }
+        @include m.resTablet {
+            top: 0.25rem;
+        }
+        @include m.resMobile {
+            top: 0;
+        }
+    }
+}
+
+.faq__item-content {
+    box-sizing: border-box;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+}
+
+.faq__item-inner-content {
+    padding-top: 2.5rem;
+}
+
+.faq__item-text--active {
+    .faq__item-text {
+        color: v.$orange;
+    }
+    svg {
+        transform: rotate(90deg);
+        path {
+            stroke:  v.$orange;
+            
+        }
+    }
+}

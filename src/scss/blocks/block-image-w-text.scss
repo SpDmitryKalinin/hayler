@@ -1,0 +1,104 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+@use 'mixins/containers.scss' as c;
+@use 'mixins/buttons.scss' as b;
+
+.block-image-w-text {
+    @include c.mainContainer();
+    height: 90vh;
+    position: relative;
+    margin-top: 7.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 7.8125rem;
+    @include m.resTablet {
+        padding: 2rem;
+    }
+    @include m.resMobile {
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 5rem;
+        padding: 0;
+    }
+}
+
+.block-image-w-text__image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    @include m.resMobile {
+        position: relative;
+        order: 2;
+        margin-top: 1.875rem;
+        &::before {
+            content: "";
+            display: block;
+            padding-top: 75%;
+        }
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+}
+
+.block-image-w-text__info {
+    color: v.$white;
+    position: relative;
+    z-index: 2;
+    @include m.resMobile {
+        color: v.$black
+    }
+}
+
+.block-image-w-text__title {
+    @include t.h2;
+    font-weight: 500;
+    max-width: 40rem;
+    @include m.resTablet {
+        max-width: 25rem;
+    }
+}
+
+.block-image-w-text__paragraph {
+    max-width: 30.625rem;
+    margin-top: 3.75rem;
+    @include m.resTablet {
+        max-width: 25rem;
+        margin-top: 2rem;
+    }
+    @include m.resMobile {
+        margin-top: 1.875rem;
+        width: 100%
+    }
+}
+
+.block-image-w-text__button {
+    @include b.buttonWhite;
+    margin-top: 3.75rem;
+    @include m.resTablet {
+        margin-top: 2rem;
+        width: 10rem;
+        padding: 1rem 0;
+        border-radius: 0.5rem;
+    }
+
+    @include m.resMobile {
+        
+        @include b.buttonDefault;
+        color: v.$black;
+        margin-top: 1.875rem !important;
+    }
+}

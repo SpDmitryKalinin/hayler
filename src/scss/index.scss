@@ -28,6 +28,13 @@
 @import 'blocks/about-slider.scss';
 @import 'blocks/hero-default.scss';
 @import 'blocks/block-image.scss';
+@import 'blocks/hero-career.scss';
+@import 'blocks/quote.scss';
+@import 'blocks/slider-career.scss';
+@import 'blocks/block-image-w-text.scss';
+@import 'blocks/vacancy.scss';
+@import 'blocks/faq.scss';
+@import 'blocks/contacts-list.scss';
 
 //template
 @import 'templates/error-page.scss';
@@ -78,4 +85,8 @@ p {
     font-weight: 300;
     font-size: 20px;
     line-height: 150%;
+}
+
+.orange {
+    color: v.$orange;
 }

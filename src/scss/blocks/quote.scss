@@ -1,0 +1,120 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+@use 'mixins/containers.scss' as c;
+@use 'mixins/buttons.scss' as b;
+
+.quote {
+    margin-top: 7.5rem;
+    @include c.mainContainer();
+    .quote__content {
+        margin-top: 7.5rem;
+        display: grid;
+        grid-template-columns: 22.5rem 1fr;
+        gap: 0 9.375rem;
+        @include m.resTablet {
+            display: flex;
+            flex-direction: column;
+            margin-top: 1.875rem;
+        }
+        
+    }
+    .quote__title {
+        font-size: 9.375rem;
+        line-height: 1;
+        max-width: 80rem;
+        font-weight: 500;
+        @include m.resTablet {
+            font-size: 1.5625rem;
+            line-height: 1;
+        }
+    }
+    
+    .quote__img {
+        grid-column: 1/2;
+        width: 100%;
+        height: max-content;
+        position: relative;
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        &::before{
+            content: "";
+            display: block;
+            padding-top: 100%;
+            @include m.resTablet {
+                padding-top: 66.6%;
+            }
+        }
+        
+    }
+    .quote__caption {
+        grid-column: 1/2;
+        @include m.resTablet {
+            margin-top: 1.875rem;
+            order: 2;
+        }
+    }
+
+    .quote__caption-content {
+        font-style: italic;
+        
+    }
+    .quote__paragraphs {
+        grid-column: 2/3;
+        grid-row: 1/3;
+        padding:  3.125rem 0;
+        position: relative;
+        @include m.resTablet {
+            padding: 1rem 0;
+            margin-top: 1.875rem;
+        }
+        &::after, &::before {
+            content: "";
+            display: block;
+            background: url('./../../assets/img/image/career/q.svg');
+            background-repeat: no-repeat;
+            background-position: left top;
+            background-size: contain;
+            width: 2.75rem;
+            height: 2.75rem;
+            position: absolute;
+            left: 0;
+            top: 0;
+            @include m.resTablet {
+                width: 1rem;
+                height: 1rem;
+            }
+        }
+        &::after {
+            bottom: 0;
+            right: 0;
+            left: unset;
+            top: unset;
+            transform: rotate(180deg);
+        }
+        
+    }
+
+    
+}
+
+.quoute__paragraph-item {
+    display: inline-block;
+    text-align: justify;
+    &--bold {
+        font-weight: 500;
+    }
+    & + & {
+        margin-top: 2.5rem;
+        @include m.resTablet {
+            margin-top: 1.25rem;
+        }
+    }
+}

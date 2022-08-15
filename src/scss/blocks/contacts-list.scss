@@ -1,0 +1,103 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+@use 'mixins/containers.scss' as c;
+@use 'mixins/buttons.scss' as b;
+
+.contact-list {
+    @include c.mainContainer();
+    margin-top: 18.75rem;
+    margin-bottom: 18.75rem;;
+    @include m.resTablet {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
+    &__container {
+
+    }
+
+    &__title {
+        font-size: 4.0625rem;
+        font-weight: 500;
+        line-height: 1;
+        min-width: 42.1875rem;
+        width: 42.1875rem;
+        margin-bottom: 7.1875rem;
+        @include m.resTablet {
+            font-size: 2rem;
+            min-width: auto;
+            max-width: 20rem;
+            margin-bottom: 1.875rem;
+            width: auto;
+        }
+        @include m.resMobile {
+            font-size: 1.5625rem;
+        }
+    }
+
+    &__span {
+        color: v.$orange;
+    }
+
+    &__info-box {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        font-size: 1.5625rem;
+        line-height: 1.5;
+        @include m.resTablet  {
+            grid-template-columns: 1fr;
+            font-size: 0.9375rem;
+            line-height: 1.333333333333333;
+        }
+    }
+
+    &__info-item {
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+        padding-bottom: 0.5rem;
+        padding-top: 0.5rem;
+
+        & + & {
+            border-left: 1px solid black;
+            padding: 0.5rem 0rem 0.5rem 5rem;
+        }
+
+        &:nth-child(4n + 1) {
+            border-left: none;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        @include m.resTablet  {   
+            border-bottom: 1px solid black;
+            padding: 0;
+            
+            & + & {
+                border-left: none;
+                padding: 0;
+            }
+        }
+    }
+
+    &__subtitle {
+        font-weight: 700;
+        margin-bottom: 3.4375rem;
+        @include m.resTablet  {
+            margin-bottom: 1.5625rem;
+        }
+    }
+
+    &__text {
+        font-weight: 300;
+        @include m.resTablet  {
+            margin-bottom: 0.625rem;
+        }
+    }
+
+    &__text-box {
+        margin-top: auto;
+    }
+}

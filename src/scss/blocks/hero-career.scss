@@ -1,0 +1,70 @@
+@use 'mixins/vars.scss' as v;
+@use 'mixins/font-styles.scss' as f;
+@use 'mixins/media.scss' as m;
+@use 'mixins/titles.scss' as t;
+@use 'mixins/containers.scss' as c;
+@use 'mixins/buttons.scss' as b;
+
+
+.hero-career {
+    height: 100vh;
+    width: 100vw;
+    margin-top: -7rem;
+    display: inline-block;
+    position: relative;
+    padding: 0 12.5rem;
+
+    @include m.resTablet {
+        padding: 1.25rem;
+        margin-top: -5.2rem;
+    }
+    &__background-content {
+        
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        margin: 0;
+        video {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            @include m.resTablet {
+                display: none;
+            }
+        }
+        img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+            @include m.resTablet {
+                display: block;
+            }
+        }
+    }
+    &__title {
+        z-index: 2;
+        position: relative;
+        max-width: 65rem;
+        font-weight: 6.25rem;
+        font-weight: 800;
+        color: v.$white;
+        letter-spacing: -0.03em;
+        margin-top: 20vh;
+        @include m.resTablet {
+            max-width: 35rem;
+        }
+        @include m.resMobile {
+            margin-top: 50vh;
+            max-width: 20rem;
+        }
+    }
+}
