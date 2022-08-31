@@ -59,7 +59,7 @@
 
         & + & {
             border-left: 1px solid black;
-            padding: 0.5rem 0rem 0.5rem 5rem;
+            padding: 0.5rem 0rem 0.5rem 3rem;
         }
 
         &:nth-child(4n + 1) {
@@ -91,6 +91,7 @@
         font-weight: 300;
         cursor: pointer;
         transition: 0.3s ease-in-out;
+        display: block;
         &:hover {
             color: v.$orange;
         }
