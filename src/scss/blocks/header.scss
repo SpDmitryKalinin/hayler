@@ -18,6 +18,17 @@
     justify-content: space-between;
     transition: 0.5s ease-in-out;
     transform: translateY(-100%);
+    .active {
+        border-bottom: 1px solid v.$white;
+        transition: 0.3s ease-in-out;
+        &:hover {
+            border-color: v.$orange;
+        }
+    }
+    
+    .header__circle.active {
+        border-bottom: none;
+    }
     
     ul {
         margin-right: 5rem;
@@ -26,7 +37,7 @@
         & [data-mobile] {
             display: none;
         }
-        & [data-circle] {
+        & .header__circle {
             color: v.$white;
             &::before {
                 display: block;
@@ -40,6 +51,7 @@
                 left: 50%;
                 transform: translateX(-50%);
                 transition: 0.3s ease-in-out;
+                pointer-events: none;
             }
         }
         li{
@@ -48,14 +60,16 @@
                 transition: 0.3s ease-in-out;
                 a {
                     display: inline-block;
-                    padding: 0.5rem 1.875rem;
-                }
-            }
-            &:hover {
-                color: v.$orange;
-                & [data-circle] {
-                    &::before {
-                        width: 2.1875rem
+                    padding: 0.5rem 0rem;
+                    margin: 0 1.875rem;
+                    transition: 0.3s ease-in-out;
+                    &:hover {
+                        color: v.$orange;
+                        &.header__circle {
+                            &::before {
+                                width: 2.1875rem
+                            }
+                        }
                     }
                 }
             }
@@ -70,7 +84,7 @@
             & [data-mobile] {
                 display: inline;
             }
-            & [data-circle] {
+            & .header__circle {
                 color: v.$black;
                 &::before {
                     display: none;
@@ -101,6 +115,10 @@
             }
         }
 
+        .active {
+            border-bottom: 1px solid v.$black;
+        }
+
         .header__burger {
             ellipse {
                 fill: v.$black;
@@ -121,7 +139,7 @@
         }
         ul {
             color: v.$black;
-            & [data-circle] {
+            & .header__circle {
                 color: v.$black;
             }
         }
