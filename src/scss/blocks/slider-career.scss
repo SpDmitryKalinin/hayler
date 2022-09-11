@@ -100,7 +100,7 @@
 
 .slider-career__prev, .slider-career__next {
     height: 100%;
-    width: 3rem;
+    width: 1.5625rem;
     position: relative;
     margin: 0;
     @include m.resTablet {
@@ -163,7 +163,7 @@
     max-width: 32.5rem;
     font-weight: 500;
     li + li {
-        margin-top: 2rem;
+        margin-top: 1rem;
         @include m.resTablet {
             margin-top: 1.875rem;
         }

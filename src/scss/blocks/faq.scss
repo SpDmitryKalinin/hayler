@@ -28,18 +28,19 @@
     }
 
     &__item-box {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2.625rem 7.9375rem;
-        align-items: flex-start;
-        grid-auto-flow: row dense;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__column{
+        display: flex;
+        flex-direction: column;
+        width: calc(50% - 4rem);
+        & + & {
+            margin-left: 8rem;
+        }
         @include m.resTablet {
-            grid-template-columns: 1fr;
-            gap: 2.1875rem 0;
-        }  
-        @include m.resMobile {
-            grid-template-columns: 1fr;
-            gap: 1.875rem 0;
+            width: 100%;
         }
     }
 
@@ -48,6 +49,18 @@
         padding-bottom: 1.5625rem;
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
+        & + & {
+            margin-top: 2.625rem;
+            @include m.resTablet {
+                margin-top: 2.1875rem
+            }  
+            @include m.resMobile {
+                gap:  0;
+                margin-top: 1.875rem
+            }
+        }
+        
     }
 
     &__item-text {
@@ -99,6 +112,7 @@
 
 .faq__item-inner-content {
     padding-top: 2.5rem;
+    p {font-size: 0.9375rem;}
 }
 
 .faq__item-text--active {

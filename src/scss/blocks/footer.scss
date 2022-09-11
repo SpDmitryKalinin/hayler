@@ -24,6 +24,7 @@
     }
 
     .lang-switcher {
+        margin-right: -0.5rem;
         @include m.resTablet {
             .button {
                 font-size: 1rem;
@@ -46,6 +47,8 @@
         display: block;
         text-align: center;
         @include b.buttonGhost;
+        padding: 1.375rem 0 !important; 
+        font-weight: 500;
     }
     &__navigation {
         margin-top: 4.25rem;

@@ -53,12 +53,13 @@
     &__title {
         z-index: 2;
         position: relative;
-        max-width: 65rem;
+        max-width: 42rem;
         font-weight: 6.25rem;
         font-weight: 800;
         color: v.$white;
+        font-size: 6.25rem;
         letter-spacing: -0.03em;
-        margin-top: 20vh;
+        margin-top: 34vh;
         @include m.resTablet {
             max-width: 35rem;
         }

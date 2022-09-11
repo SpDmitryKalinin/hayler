@@ -68,7 +68,7 @@ if(keyNumber) {
                 })
             },
             //markers: true,
-            start: `top top`,
+            start:() => `${-window.innerHeight/4}` + ` top`,
             end: `bottom bottom`,
         } 
     });

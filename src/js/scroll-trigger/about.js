@@ -20,18 +20,12 @@ if(about && windowWidth >= 1200) {
             scrub: 1,
             anticipatePin: 1,
             onEnter: () => {
-                console.log('onEnter')
             },
             //markers: true,
             start: "top top",
             end: `+=${windowHeight * 1.5}`,
             onUpdate: (self) => {
                 const interValue = interpolation(self.progress, 0, 0.9, 0, 1);
-                // if(interValue < 1) {
-                //     titleAbout.style.marginLeft = `${10 - (26.1 * (interValue))}em`;
-                //     // console.log(bez(interValue), interValue)
-                //     
-                // }
                 if(interValue <= 0.6) {
                     let interpolationStagefirst = interpolation(interValue, 0, 0.6, 0, 1);
                     titleAbout.style.marginLeft = `${10 - (23.2* (interpolationStagefirst))}em`;
@@ -94,7 +88,6 @@ else if(about && windowWidth < 1200) {
             scrub: 0.5,
             anticipatePin: 1,
             onEnter: () => {
-                console.log('onEnter')
             },
             //markers: true,
             start: "top bottom",

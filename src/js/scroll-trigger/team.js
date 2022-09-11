@@ -68,14 +68,12 @@ blocksTeam.forEach(blockTeam => {
     }
     else if(windowWidth < 1200) {
         let diff = blockTeamTitle.scrollWidth / blockTeam.clientWidth + 0.2;
-        console.log(diff);
         let t2 = gsap.timeline({
             scrollTrigger: {
                 trigger: ".team[data-scroll-trigger]",
                 scrub: 0.5,
                 anticipatePin: 1,
                 onEnter: () => {
-                    console.log('onEnter')
                 },
                 //markers: true,
                 start: "top bottom",

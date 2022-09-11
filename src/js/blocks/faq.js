@@ -1,7 +1,6 @@
 const faqBlocks = document.querySelectorAll('.faq');
 
 faqBlocks.forEach(faq => {
-    console.log(faq);
     const faqItems = faq.querySelectorAll('.faq__item');
     faqItems.forEach(faqItem => {
         const faqItemHeader = faqItem.querySelector('.faq__item-header');

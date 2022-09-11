@@ -8,11 +8,9 @@ const aboutSliders = document.querySelectorAll('.about-slider');
 
 aboutSliders.forEach(aboutSlider => {
     const windowWidth = window.innerWidth;
-    console.log(windowWidth);
     if(windowWidth >= 1200) {
         const swiper = new Swiper('.about-slider', {
             speed: 400,
-            direction: 'vertical',
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
@@ -24,7 +22,6 @@ aboutSliders.forEach(aboutSlider => {
         const imgContainer = slide.querySelector('.about-slider__slide-right');
         const imgs = imgContainer.querySelectorAll('img');
         if(imgs.length === 2) {
-            console.log(imgContainer)
             windowWidth >= 1200 ? imgContainer.style = 'display: flex; flex-direction:column' : imgContainer.style = 'display: flex; flex-direction:column; gap: 0.75rem;'; 
             if(windowWidth < 1200) {
                 imgs.forEach(img => {

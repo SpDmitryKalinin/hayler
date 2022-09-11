@@ -18,13 +18,11 @@ if(gallery && windowWidth >= 1200) {
             scrub: 0.5,
             anticipatePin: 1,
             onEnter: () => {
-                console.log('onEnter')
                 
             },
             onLeave: () => {
                 let anchor = document.querySelector('.gallery-anchor');
                 let bottomPosition = parseInt(window.getComputedStyle(anchor, null).getPropertyValue('bottom'));
-                console.log(bottomPosition);
                 heightGallery = gallery.offsetHeight;
                 let t4 = gsap.timeline({
                     scrollTrigger: {
