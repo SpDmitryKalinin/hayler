@@ -54,7 +54,6 @@
         z-index: 2;
         position: relative;
         max-width: 42rem;
-        font-weight: 6.25rem;
         font-weight: 800;
         color: v.$white;
         font-size: 6.25rem;
@@ -62,6 +61,7 @@
         margin-top: 34vh;
         @include m.resTablet {
             max-width: 35rem;
+            font-size: 2.8125rem;
         }
         @include m.resMobile {
             margin-top: 50vh;

@@ -103,6 +103,7 @@
     width: 1.5625rem;
     position: relative;
     margin: 0;
+    border: none;
     @include m.resTablet {
         width: 2rem;
     }
