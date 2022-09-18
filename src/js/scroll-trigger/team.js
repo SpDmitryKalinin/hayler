@@ -31,10 +31,10 @@ blocksTeam.forEach(blockTeam => {
                 onUpdate: (self) => {
                     if(self.progress <= 0.5) {
                         let interProgressTitle = interpolation(self.progress, 0, 0.5, 0, 1);
-                        blockTeamTitle.style.left = `${120 - interProgressTitle * 133}rem`;
+                        blockTeamTitle.style.left = blockTeam.classList.contains('team--eng') ?`${120 - interProgressTitle * 170}rem` : `${120 - interProgressTitle * 133}rem`;
                     }
                     if(self.progress >=0.8) {
-                        blockTeamTitle.style.left = `-53rem`;
+                        blockTeamTitle.style.left =  blockTeam.classList.contains('team--eng') ? `-90rem` : `-53rem`;
                     }
                     if(self.progress < 0.6) {
                         blockTeamContent.style.top = `100%`;
@@ -45,7 +45,7 @@ blocksTeam.forEach(blockTeam => {
                     }
                     if(self.progress >=0.5 && self.progress <=0.8) {
                         let interTitleStageTwo = interpolation(self.progress, 0.5, 0.8, 0, 1);
-                        blockTeamTitle.style.left = `${-13 - (interTitleStageTwo * 40)}rem`;
+                        blockTeamTitle.style.left = blockTeam.classList.contains('team--eng') ? `${-50 - (interTitleStageTwo * 40)}rem` : `${-13 - (interTitleStageTwo * 40)}rem`;
                     }
                     if(self.progress >=0.6 && self.progress <=0.9) {
                         let interProgressOther = interpolation(self.progress, 0.6, 0.9, 0, 1);
