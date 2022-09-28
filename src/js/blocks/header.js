@@ -91,9 +91,12 @@ if(header) {
     function changeColorHeader(color) {
         if(color === 'white') {
             header.classList.remove('header--black');
+            header.classList.remove('header--dark');
         }
         else if(color === 'black'){
             header.classList.add('header--black');
+        } else if(color === 'dark'){
+            header.classList.add('header--dark');
         }
     }
 }

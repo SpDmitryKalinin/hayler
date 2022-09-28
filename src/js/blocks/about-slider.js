@@ -23,9 +23,12 @@ aboutSliders.forEach(aboutSlider => {
         const imgs = imgContainer.querySelectorAll('img');
         if(imgs.length === 2) {
             windowWidth >= 1200 ? imgContainer.style = 'display: flex; flex-direction:column' : imgContainer.style = 'display: flex; flex-direction:column; gap: 0.75rem;'; 
+            imgs.forEach(img => {
+                img.style.height = 50 + '%';
+            })
             if(windowWidth < 1200) {
                 imgs.forEach(img => {
-                    img.style.height = img.clientWidth * 0.75 + 'px';
+                    img.style.height = 50 + '%';
                 })
             }
         }
@@ -38,6 +41,7 @@ aboutSliders.forEach(aboutSlider => {
                 })
             }
         }
+
     })
 })
 
