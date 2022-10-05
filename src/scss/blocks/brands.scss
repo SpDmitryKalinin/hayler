@@ -115,10 +115,10 @@
         }
         &:hover {
             .brands__logos {
-                transform: translateY(25%);
+                // transform: translateY(25%);
             }
             .brands__item-paragraph {
-                opacity: 1;
+                // opacity: 1;
             }
             .brands__grid-image {
                 scale: 1.05;
@@ -191,7 +191,7 @@
         margin-top: 1.5625rem;
         padding: 0 7rem 0 7rem;
         text-align: center;
-        opacity: 0;
+        // opacity: 0;
         transition: 0.4s ease-in-out;
         @include m.resTablet {
             padding: 0 2rem;

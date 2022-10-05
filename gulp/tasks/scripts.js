@@ -9,7 +9,7 @@ export const scripts = () => {
             })
         ))
         .pipe(webpack({
-            mode: 'development',
+            mode: 'production',
             output: {
                 filename:'main.js'
             }

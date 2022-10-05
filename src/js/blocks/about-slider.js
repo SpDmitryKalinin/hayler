@@ -15,6 +15,9 @@ aboutSliders.forEach(aboutSlider => {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
               },
+                mousewheel: {
+                releaseOnEdges: true,
+              },
         });
     }
     const slides = aboutSlider.querySelectorAll('.about-slider__slide');
