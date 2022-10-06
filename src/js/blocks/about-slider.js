@@ -15,11 +15,40 @@ aboutSliders.forEach(aboutSlider => {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
               },
-                mousewheel: {
-                releaseOnEdges: true,
-              },
+            //     mousewheel: {
+            //     releaseOnEdges: true,
+            //   },
         });
+        const observer = new IntersectionObserver((entries, observer) => {
+            var previousPosition = window.pageYOffset || document.documentElement.scrollTop;
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    
+                    
+                    console.log(entry);
+                    window.addEventListener('scroll', function(e) {
+                        var currentPosition = window.pageYOffset || document.documentElement.scrollTop;
+                        console.log(currentPosition);
+                        console.log(previousPosition);
+                        if (previousPosition > currentPosition) {
+                            swiper.slidePrev(currentPosition);
+                        } else {
+                                if((currentPosition - previousPosition) > 30) {
+                                    swiper.slideNext(currentPosition);
+                                }
+                                
+                        
+                        }
+                      
+                        previousPosition = currentPosition;
+                        
+                      });
+                } else {}
+            })
+        }, { threshold: 1 })
+    aboutSliders.forEach(aboutslider => observer.observe(aboutslider));
     }
+     
     const slides = aboutSlider.querySelectorAll('.about-slider__slide');
     slides.forEach(slide => {
         const imgContainer = slide.querySelector('.about-slider__slide-right');
@@ -50,5 +79,4 @@ aboutSliders.forEach(aboutSlider => {
 
 
 
-  // init Swiper:
   
